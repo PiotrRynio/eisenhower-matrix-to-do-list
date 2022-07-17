@@ -1,10 +1,11 @@
-export type LineHeight = 'sm' | 'md' | 'lg' | 'xl';
+export type LineHeight = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type LineHeights = Record<LineHeight, string>;
 
 export const lineHeights: LineHeights = {
-  sm: '16px',
-  md: '18px',
-  lg: '24px',
-  xl: '32px',
+  xs: '16px',
+  sm: '20px',
+  md: '24px',
+  lg: '28px',
+  xl: '28px',
 };

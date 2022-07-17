@@ -1,20 +1,19 @@
-# React 17 template + styled-components + useQuery + MSW
+# Eisenhower Matrix To Do List
 
 ## Overview:
 
-Our app should allow searching GitHub for users and repositories.
+A simple app using Eisenhower Matrix. That is a very helpful tool in making decisions. 
+Here you can read more about the
+[Eisenhower Matrix](https://todoist.com/pl/productivity-methods/eisenhower-matrix).
+Take happiness from raising productivity.
 
-- Demo on Netlify: [LINK](https://github.com/PiotrRynio)
-- API URL: [Github REST API(v3)](https://github.com/PiotrRynio)
-- Repo url: [LINK](https://github.com/PiotrRynio)
--
+- Demo on Netlify: [LINK](https://eisenhower-to-do-list.netlify.app/) 
+- Repo url: [LINK](https://github.com/PiotrRynio/eisenhower-matrix-to-do-list) 
 
-### Start:
+### Start: 
 
-1. npx npm-check-updates --target minor
-2. npx npm-check-updates -u --target minor
-3. npm install
-4. npm run start
+1. npm install
+2. npm run start
 
 Others:
 
@@ -25,18 +24,12 @@ Others:
 
 - [css order](https://css-tricks.com/poll-results-how-do-you-order-your-css-properties/)
 - [commit notation](https://gist.github.com/brianclements/841ea7bffdb01346392c#type)
-
-## Problems with initial description of task and solutions:
-
-1. ...
-
-## Authenticating with GitHub Api in the local project:
-
-...
+ 
 
 ## Authors:
 
 _Piotr Rynio_  
 Contact:
 pwrynio@gmail.com  
-github.com/PiotrRynio/
+[github.com/PiotrRynio/](https://github.com/PiotrRynio)
+

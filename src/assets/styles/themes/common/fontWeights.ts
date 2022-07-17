@@ -1,7 +1,8 @@
-export type FontWeight = 'medium';
+export type FontWeight = 'regular' | 'bold';
 
 export type FontWeights = Record<FontWeight, string>;
 
 export const fontWeights: FontWeights = {
-  medium: '500',
+  regular: '400',
+  bold: '700',
 };

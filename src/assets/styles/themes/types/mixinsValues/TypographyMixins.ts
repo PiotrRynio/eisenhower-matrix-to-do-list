@@ -1,22 +1,13 @@
 import { DefaultTheme, Interpolation, ThemedStyledProps, ThemeProps } from 'styled-components';
-import { TypographyVariant } from '../themeValues';
+import { Color, TypographyVariant } from '../themeValues';
 
-export interface SubtitleProps {
-  isSecondaryColor?: boolean;
-}
-export interface PaginationProps {
-  isInactive?: boolean;
+export interface LabelProps {
+  color?: Color;
 }
 
-export type TypographyMixinsProps = SubtitleProps & PaginationProps;
+export type TypographyMixinsProps = LabelProps;
 
 export type TypographyMixins = Record<
   TypographyVariant,
-  ReadonlyArray<
-    Interpolation<
-      | ThemeProps<DefaultTheme>
-      | ThemedStyledProps<SubtitleProps, DefaultTheme>
-      | ThemedStyledProps<PaginationProps, DefaultTheme>
-    >
-  >
+  ReadonlyArray<Interpolation<ThemeProps<DefaultTheme> | ThemedStyledProps<LabelProps, DefaultTheme>>>
 >;

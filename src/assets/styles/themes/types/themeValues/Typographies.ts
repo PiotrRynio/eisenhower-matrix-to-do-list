@@ -9,6 +9,6 @@ type Typography = {
   color: Colors[Color];
 };
 
-export type TypographyVariant = 'body1' | 'body2' | 'small' | 'itemTitle' | 'title' | 'subtitle' | 'pagination';
+export type TypographyVariant = 'body1' | 'label' | 'title' | 'listTitle';
 
 export type Typographies = Record<TypographyVariant, Typography>;

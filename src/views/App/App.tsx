@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
-import { NotFound, Searcher, User } from 'views';
+import { NotFound, Home } from 'views';
 import { TopBar } from 'components';
+import { HOME_PATH, NOT_FOUND_PATH } from 'constants/routersPaths';
 import { MainSection, Wrapper } from './App.styles';
 
 export const App = () => {
@@ -9,9 +10,8 @@ export const App = () => {
       <TopBar />
       <MainSection>
         <Routes>
-          <Route path="/" element={<Searcher />} />
-          <Route path="/user" element={<User />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path={HOME_PATH} element={<Home />} />
+          <Route path={NOT_FOUND_PATH} element={<NotFound />} />
         </Routes>
       </MainSection>
     </Wrapper>

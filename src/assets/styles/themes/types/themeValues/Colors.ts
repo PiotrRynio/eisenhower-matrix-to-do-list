@@ -1,13 +1,14 @@
 export type Color =
   | 'primary'
   | 'primaryText'
-  | 'secondaryText'
   | 'linkText'
-  | 'separatorLine'
-  | 'searcher'
   | 'disabled'
   | 'background'
   | 'transparent'
-  | 'border';
+  | 'border'
+  | 'doItPriority'
+  | 'scheduleItPriority'
+  | 'delegateItPriority'
+  | 'deleteItPriority';
 
 export type Colors = Record<Color, string>;

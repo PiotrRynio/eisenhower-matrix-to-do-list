@@ -1,19 +1,20 @@
 import { Colors } from '../../types';
 
 export const colors: Colors = {
-  primary: '#24292F',
+  primary: '#E44334',
 
-  primaryText: '#6F7781',
-  secondaryText: '#24292F',
+  primaryText: '#1F1F1F',
   linkText: '#166CD7',
-
-  separatorLine: '#C4C4C4',
-  searcher: '#D0D7DE',
 
   disabled: '#8D959F',
   background: '#fff',
 
-  border: '#C4C4C4',
+  border: '#f0f0f0',
 
   transparent: 'transparent',
+
+  doItPriority: '#E44838',
+  scheduleItPriority: '#FF9E0F',
+  delegateItPriority: '#3672EA',
+  deleteItPriority: '#9C9C9C',
 };

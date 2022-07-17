@@ -1,23 +1,23 @@
 import styled from 'styled-components';
 
-export const Body1Typography = styled.p`
+type StyledTypographyProps = { display?: string };
+
+export const Body1Typography = styled.p<StyledTypographyProps>`
   ${({ theme }) => theme.mixins.typography.body1};
+  display: ${({ display }) => display || 'inline-block'};
 `;
-export const Body2Typography = styled.p`
-  ${({ theme }) => theme.mixins.typography.body2};
+
+export const LabelTypography = styled.p<StyledTypographyProps>`
+  ${({ theme }) => theme.mixins.typography.label};
+  display: ${({ display }) => display || 'inline-block'};
 `;
-export const SmallTypography = styled.p`
-  ${({ theme }) => theme.mixins.typography.small};
-`;
-export const ItemTitleTypography = styled.h3`
-  ${({ theme }) => theme.mixins.typography.itemTitle};
-`;
-export const TitleTypography = styled.h2`
+
+export const TitleTypography = styled.h2<StyledTypographyProps>`
   ${({ theme }) => theme.mixins.typography.title};
+  display: ${({ display }) => display || 'inline-block'};
 `;
-export const SubtitleTypography = styled.h4`
-  ${({ theme }) => theme.mixins.typography.subtitle};
-`;
-export const PaginationTypography = styled.span`
-  ${({ theme }) => theme.mixins.typography.pagination};
+
+export const ListTitleTypography = styled.h4<StyledTypographyProps>`
+  ${({ theme }) => theme.mixins.typography.listTitle};
+  display: ${({ display }) => display || 'inline-block'};
 `;

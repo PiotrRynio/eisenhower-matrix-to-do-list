@@ -12,28 +12,12 @@ describe(`<Typography>`, () => {
     screen.getByText(/Example text/i);
   });
 
-  it('renders body2 typography correctly', () => {
+  it('renders label typography correctly', () => {
     // when
-    render(<Typography variant="body2">{exampleText}</Typography>);
+    render(<Typography variant="label">{exampleText}</Typography>);
 
     // then
     screen.getByText(/Example text/i);
-  });
-
-  it('renders small typography correctly', () => {
-    // when
-    render(<Typography variant="small">{exampleText}</Typography>);
-
-    // then
-    screen.getByText(/Example text/i);
-  });
-
-  it('renders ItemTitle typography correctly', () => {
-    // when
-    render(<Typography variant="itemTitle">{exampleText}</Typography>);
-
-    // then
-    screen.getByRole('heading', { name: /Example text/i, level: 3 });
   });
 
   it('renders Title typography correctly', () => {
@@ -43,19 +27,12 @@ describe(`<Typography>`, () => {
     // then
     screen.getByRole('heading', { name: /Example text/i, level: 2 });
   });
-  it('renders Subtitle typography correctly', () => {
+
+  it('renders list title typography correctly', () => {
     // when
-    render(<Typography variant="subtitle">{exampleText}</Typography>);
+    render(<Typography variant="listTitle">{exampleText}</Typography>);
 
     // then
     screen.getByRole('heading', { name: /Example text/i, level: 4 });
-  });
-
-  it('renders Pagination typography correctly', () => {
-    // when
-    render(<Typography variant="pagination">{exampleText}</Typography>);
-
-    // then
-    screen.getByText(/Example text/i);
   });
 });
