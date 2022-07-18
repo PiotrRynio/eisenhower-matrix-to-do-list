@@ -1,25 +1,17 @@
-import { useTask } from 'hooks/useTask/useTask';
+import { Task } from 'types/Task';
 import { TaskCheckBox, Typography, TaskLabel } from 'components';
 import { Content, LabelsWrapper, Wrapper } from './TasksListItem.styles';
 
-export type TasksListItemProps = { taskId: string };
+export type TasksListItemProps = Task;
 
-export const TasksListItem = ({ taskId }: TasksListItemProps) => {
-  const { task } = useTask(taskId);
-
-  console.log('task', task);
-
-  if (!task) {
-    return null;
-  }
-
+export const TasksListItem = ({ name, labels, isDone = false }: TasksListItemProps) => {
   return (
     <Wrapper>
-      <TaskCheckBox />
+      <TaskCheckBox isDone={isDone} onClick={() => {}} />
       <Content>
-        <Typography variant="body1">{task.name}</Typography>
+        <Typography variant="body1">{name}</Typography>
         <LabelsWrapper>
-          {task.labels.map((label: string) => (
+          {labels.map((label: string) => (
             <TaskLabel key={label} name={label} />
           ))}
         </LabelsWrapper>

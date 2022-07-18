@@ -24,6 +24,7 @@ const customHookRender = (useHook: (props: { children: ReactNode }) => any, opti
     wrapper: (props) => (
       <AllTheProviders {...props} history={history}>
         {props.children}
+        <div id="overlay-root" />
       </AllTheProviders>
     ),
   });

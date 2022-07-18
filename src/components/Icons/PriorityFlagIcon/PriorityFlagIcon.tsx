@@ -4,6 +4,7 @@ import { useTheme } from 'styled-components';
 type FlagIconProps = IconProps & {
   priority?: 'doIt' | 'scheduleIt' | 'delegateIt' | 'deleteIt';
 };
+
 export const PriorityFlagIcon = ({ priority = 'deleteIt', width = 15, height = 17, ariaLabel }: FlagIconProps) => {
   const theme = useTheme();
 

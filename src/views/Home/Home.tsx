@@ -1,6 +1,6 @@
-import { usePageTitle } from 'hooks';
 import { FULL_APP_NAME, SHORT_APP_NAME } from 'constants/names';
-import { tasksLists } from 'constants/tasksLists';
+import { tasksListsSchema } from 'constants/tasksListsSchema';
+import { usePageTitle } from 'hooks';
 import { TasksList, Typography } from 'components';
 import { TaskLists } from './Home.styles';
 
@@ -11,7 +11,7 @@ export const Home = () => {
     <article>
       <Typography variant="title">{FULL_APP_NAME}</Typography>
       <TaskLists>
-        {tasksLists.map((list) => (
+        {tasksListsSchema.map((list) => (
           <TasksList key={list.id} {...list} />
         ))}
       </TaskLists>

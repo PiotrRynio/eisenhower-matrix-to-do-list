@@ -14,10 +14,11 @@ export const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
   }
    
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 6px; 
+    height: 6px; 
   }
   ::-webkit-scrollbar-track {
-    border-right: 0  ${({ theme }) => theme.colors.primary} solid;
+    border-right: 0  ${({ theme }) => theme.colors.primary} solid;  
   }
   ::-webkit-scrollbar-thumb {
     background: ${({ theme }) => theme.colors.primary};

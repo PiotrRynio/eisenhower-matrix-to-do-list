@@ -7,3 +7,7 @@ export * from './TasksList';
 export * from './TasksListItem';
 export * from './TaskCheckBox';
 export * from './TaskLabel';
+export * from './CreateTaskButton';
+export * from './Overlay';
+export * from './CreateNewTaskPopup';
+export * from './Button';
