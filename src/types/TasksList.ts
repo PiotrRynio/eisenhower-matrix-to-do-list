@@ -1,7 +1,6 @@
-import { Task } from './Task';
+import { TaskListsIds } from './TaskListsIds';
 
 export type TasksList = {
-  id: string;
+  id: TaskListsIds;
   title: string;
-  tasks: Task[];
 };

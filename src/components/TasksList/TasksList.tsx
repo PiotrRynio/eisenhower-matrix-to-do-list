@@ -1,16 +1,21 @@
+import { useTasksList } from 'hooks/useTasksList';
 import { Typography, TasksListItem } from 'components';
-import { TasksList as TasksListType } from 'types/TasksList';
+import { TaskListsIds } from 'types/TaskListsIds';
 import { Wrapper, StyledTasksList } from './TasksList.styles';
 
-type TasksListProps = TasksListType;
+type TasksListProps = { id: TaskListsIds; title: string };
 
-export const TasksList = ({ title, tasks }: TasksListProps) => {
+export const TasksList = ({ id, title }: TasksListProps) => {
+  const { tasksListIds } = useTasksList(id);
+
+  console.log('tasksListIds', tasksListIds);
+
   return (
     <Wrapper>
       <Typography variant="listTitle">{title}</Typography>
       <StyledTasksList>
-        {tasks.map((task) => (
-          <TasksListItem key={task.name} {...task} />
+        {tasksListIds.map((taskId) => (
+          <TasksListItem key={taskId} taskId={taskId} />
         ))}
       </StyledTasksList>
     </Wrapper>
