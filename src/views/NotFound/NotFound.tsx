@@ -1,9 +1,9 @@
 import { usePageTitle } from 'hooks';
 import { Link, Typography } from 'components';
-import { APP_NAME } from 'constants/names';
+import { SHORT_APP_NAME } from 'constants/names';
 
 export const NotFound = () => {
-  usePageTitle(`Not Found | ${APP_NAME}`);
+  usePageTitle(`Not Found | ${SHORT_APP_NAME}`);
 
   return (
     <div>

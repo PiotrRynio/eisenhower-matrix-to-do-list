@@ -1,7 +1,7 @@
-import { mixins } from './mixinsValues/mixins';
+import { mixins } from './mixinsValues';
 import { Theme } from '../types';
 import { breakpoints, fontSizes, fontWeights, lineHeights, sizes } from '../common';
-import { colors, fontFamilies, typographies } from './themeValues';
+import { colors, fontFamilies } from './themeValues';
 
 export const theme: Theme = {
   breakpoints,
@@ -12,5 +12,4 @@ export const theme: Theme = {
   lineHeights,
   mixins,
   sizes,
-  typographies,
 };

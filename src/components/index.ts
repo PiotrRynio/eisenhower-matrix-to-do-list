@@ -3,3 +3,7 @@ export * from './TopBar';
 export * from './Link';
 export * from './Icons';
 export * from './Typography';
+export * from './TasksList';
+export * from './TasksListItem';
+export * from './TaskCheckBox';
+export * from './TaskLabel';

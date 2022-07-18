@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { PageTabTitleContext } from 'providers';
-import { APP_NAME } from 'constants/names';
+import { SHORT_APP_NAME } from 'constants/names';
 
 export const usePageTitle = (newPageTitle?: string) => {
   const usePageTabTitle = useContext(PageTabTitleContext);
@@ -8,7 +8,7 @@ export const usePageTitle = (newPageTitle?: string) => {
 
   useEffect(() => {
     if (!!newPageTitle) {
-      setPageTitle(newPageTitle || APP_NAME);
+      setPageTitle(newPageTitle || SHORT_APP_NAME);
     }
   }, [setPageTitle, newPageTitle]);
 

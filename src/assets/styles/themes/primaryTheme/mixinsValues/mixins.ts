@@ -1,5 +1,5 @@
-import { typography } from './index';
 import { Mixins } from '../../types';
+import { typography } from './typography';
 
 export const mixins: Mixins = {
   typography,

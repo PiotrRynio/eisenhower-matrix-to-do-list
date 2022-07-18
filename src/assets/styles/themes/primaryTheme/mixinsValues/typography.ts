@@ -3,32 +3,32 @@ import { LabelProps, TypographyMixins } from '../../types/mixinsValues/Typograph
 
 export const typography: TypographyMixins = {
   body1: css`
-    font-size: ${({ theme }) => theme.typographies.body1.fontSize};
-    line-height: ${({ theme }) => theme.typographies.body1.lineHeight};
-    font-weight: ${({ theme }) => theme.typographies.body1.fontWeight};
-    font-family: ${({ theme }) => theme.typographies.body1.fontFamily};
-    color: ${({ theme }) => theme.typographies.body1.color};
+    font-size: ${({ theme }) => theme.fontSizes.md};
+    line-height: ${({ theme }) => theme.lineHeights.md};
+    font-weight: ${({ theme }) => theme.fontWeights.regular};
+    font-family: ${({ theme }) => theme.fontFamilies.primary};
+    color: ${({ theme }) => theme.colors.primaryText};
   `,
   label: css<LabelProps>`
-    font-size: ${({ theme }) => theme.typographies.label.fontSize};
-    line-height: ${({ theme }) => theme.typographies.label.lineHeight};
-    font-weight: ${({ theme }) => theme.typographies.label.fontWeight};
-    font-family: ${({ theme }) => theme.typographies.label.fontFamily};
-    color: ${({ theme, color }) => color || theme.typographies.label.color};
+    font-size: ${({ theme }) => theme.fontSizes.xs};
+    line-height: ${({ theme }) => theme.lineHeights.xs};
+    font-weight: ${({ theme }) => theme.fontWeights.regular};
+    font-family: ${({ theme }) => theme.fontFamilies.primary};
+    color: ${({ theme, color }) => color || theme.colors.primaryText};
   `,
   title: css`
-    font-size: ${({ theme }) => theme.typographies.title.fontSize};
-    line-height: ${({ theme }) => theme.typographies.title.lineHeight};
-    font-weight: ${({ theme }) => theme.typographies.title.fontWeight};
-    font-family: ${({ theme }) => theme.typographies.title.fontFamily};
-    color: ${({ theme }) => theme.typographies.title.color};
+    font-size: ${({ theme }) => theme.fontSizes['3xl']};
+    line-height: ${({ theme }) => theme.lineHeights['3xl']};
+    font-weight: ${({ theme }) => theme.fontWeights.bold};
+    font-family: ${({ theme }) => theme.fontFamilies.primary};
+    color: ${({ theme }) => theme.colors.primaryText};
   `,
 
-  listTitle: css`
-    font-size: ${({ theme }) => theme.typographies.listTitle.fontSize};
-    line-height: ${({ theme }) => theme.typographies.listTitle.lineHeight};
-    font-weight: ${({ theme }) => theme.typographies.listTitle.fontWeight};
-    font-family: ${({ theme }) => theme.typographies.listTitle.fontFamily};
-    color: ${({ theme }) => theme.typographies.listTitle.color};
+  sectionTitle: css`
+    font-size: ${({ theme }) => theme.fontSizes.lg};
+    line-height: ${({ theme }) => theme.lineHeights.lg};
+    font-weight: ${({ theme }) => theme.fontWeights.bold};
+    font-family: ${({ theme }) => theme.fontFamilies.primary};
+    color: ${({ theme }) => theme.colors.primaryText};
   `,
 };

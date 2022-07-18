@@ -1,14 +1,20 @@
 import React, { ReactNode } from 'react';
 import { TypographyMixinsProps } from 'assets/styles/themes/types/mixinsValues/TypographyMixins';
-import { Body1Typography, LabelTypography, ListTitleTypography, TitleTypography } from './Typography.styles';
+import {
+  Body1Typography,
+  LabelTypography,
+  ListTitleTypography,
+  StyledTypographyProps,
+  TitleTypography,
+} from './Typography.styles';
 
 type TypographyVariant = 'body1' | 'label' | 'title' | 'listTitle';
 
 type TypographyProps = {
   children: ReactNode;
   variant: TypographyVariant;
-  display?: 'inline-block' | 'block';
-} & TypographyMixinsProps;
+} & StyledTypographyProps &
+  TypographyMixinsProps;
 
 export const Typography = (props: TypographyProps) => {
   const TypographyVariant = TYPOGRAPHY_VARIANT_MAP[props.variant];

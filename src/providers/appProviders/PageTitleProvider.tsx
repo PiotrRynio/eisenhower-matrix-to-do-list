@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { APP_NAME } from 'constants/names';
+import { SHORT_APP_NAME } from 'constants/names';
 
 type PageTitleContextType = {
   pageTitle: string;
@@ -8,7 +8,7 @@ type PageTitleContextType = {
 };
 
 const pageTitleContextDefaultValue = {
-  pageTitle: APP_NAME,
+  pageTitle: SHORT_APP_NAME,
   setPageTitle: (newTitle?: string) => {},
 };
 
@@ -18,7 +18,7 @@ const PageTitleProvider = ({ children }: { children: React.ReactNode }) => {
   const [pageTitle, setPageTitle] = useState<string>(pageTitleContextDefaultValue.pageTitle);
 
   const setTitle = (newTitle?: string) => {
-    setPageTitle(newTitle || APP_NAME);
+    setPageTitle(newTitle || SHORT_APP_NAME);
   };
 
   return (
