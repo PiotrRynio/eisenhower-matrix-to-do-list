@@ -1,4 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
+import { Droppable, DroppableProvided } from 'react-beautiful-dnd';
 import { TaskListsIds } from 'types/TaskListsIds';
 import { Task } from 'types/Task';
 import { useTasksLists } from 'hooks';
@@ -30,11 +31,16 @@ export const TasksList = ({ id, title, isDoneTasksDisplayed }: TasksListProps) =
         <Typography variant="listTitle">{title}</Typography>
         <Typography variant="label"> {taskLabelText}</Typography>
       </StyledHeader>
-      <StyledTasksList>
-        {filteredTasks?.map(({ id, labels, isDone, name }) => (
-          <TasksListItem key={id} id={id} name={name} labels={labels} isDone={isDone} />
-        ))}
-      </StyledTasksList>
+      <Droppable droppableId={id}>
+        {(provided: DroppableProvided) => (
+          <StyledTasksList ref={provided.innerRef} {...provided.droppableProps}>
+            {filteredTasks?.map(({ id, labels, isDone, name }, index) => (
+              <TasksListItem key={id} id={id} name={name} labels={labels} isDone={isDone} index={index} />
+            ))}
+            {provided.placeholder}
+          </StyledTasksList>
+        )}
+      </Droppable>
     </Wrapper>
   );
 };

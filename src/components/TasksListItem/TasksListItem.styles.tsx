@@ -11,6 +11,7 @@ export const Wrapper = styled.li`
 export const Content = styled.article`
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 8px;
 `;
 

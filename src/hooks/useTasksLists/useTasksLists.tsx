@@ -39,5 +39,36 @@ export const useTasksLists = () => {
     setTasksLists(newTasksList);
   };
 
-  return { tasksLists, getTasksList, createNewTask, changeTaskDoneStatus };
+  const findTask = (taskId: string) =>
+    tasksLists.find((list) => list.tasks.find((task) => task.id === taskId))?.tasks.find((task) => task.id === taskId);
+
+  const changeTaskPosition = ({
+    taskId,
+    newTasksList,
+    newTasksIndex,
+  }: {
+    taskId: string;
+    newTasksList: string;
+    newTasksIndex: number;
+  }) => {
+    const draggedTask = findTask(taskId);
+
+    const newTasksLists = tasksLists.map((tasksList) => {
+      const tasksListCopy = JSON.parse(JSON.stringify(tasksList)) as TasksList;
+      if (tasksListCopy.id === tasksList.id) {
+        const newTasks = tasksListCopy.tasks.filter((task) => task.id !== taskId);
+        tasksListCopy.tasks = [...newTasks];
+      }
+      if (tasksListCopy.id === newTasksList) {
+        const newTasks = tasksListCopy.tasks;
+        newTasks.splice(newTasksIndex, 0, draggedTask as Task);
+        tasksListCopy.tasks = [...newTasks];
+      }
+      return tasksListCopy;
+    });
+
+    setTasksLists(newTasksLists);
+  };
+
+  return { getTasksList, createNewTask, changeTaskDoneStatus, findTask, changeTaskPosition };
 };
