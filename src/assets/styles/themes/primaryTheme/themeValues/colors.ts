@@ -2,7 +2,9 @@ import { Colors } from '../../types';
 
 export const colors: Colors = {
   primary: '#E44334',
+  primaryHovered: '#EC7C71',
   primaryOpposed: '#fff',
+  primaryOpposedHovered: '#f3f3f3',
 
   primaryText: '#1F1F1F',
   linkText: '#166CD7',

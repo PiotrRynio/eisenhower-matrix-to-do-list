@@ -1,19 +1,26 @@
 import styled, { css } from 'styled-components';
 
 export const StyledButton = styled.button<{ isPrimary?: boolean }>`
-  ${({ theme }) => theme.mixins.typography.body1}
+  ${({ theme }) => theme.mixins.typography.button}
   padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  background-color: ${({ theme }) => theme.colors.idle};
-  color: ${({ theme }) => theme.colors.primaryText};
+  border: 1px solid ${({ theme }) => theme.colors.primary};
+  border-radius: 19px;
+  background-color: ${({ theme }) => theme.colors.primaryOpposed};
   cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primaryOpposedHovered};
+  }
 
   ${({ isPrimary, theme }) =>
     isPrimary &&
     css`
-      border: none;
-      background-color: ${({ theme }) => theme.colors.primary};
+      border-color: ${theme.colors.primaryOpposed};
+      background-color: ${theme.colors.primary};
       color: ${theme.colors.primaryOpposed};
+
+      &:hover {
+        background-color: ${theme.colors.primaryHovered};
+      }
     `}
 `;

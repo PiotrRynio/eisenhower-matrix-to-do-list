@@ -1,6 +1,8 @@
 export type Color =
   | 'primary'
+  | 'primaryHovered'
   | 'primaryOpposed'
+  | 'primaryOpposedHovered'
   | 'primaryText'
   | 'linkText'
   | 'disabled'

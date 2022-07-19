@@ -1,19 +1,19 @@
 import { useState } from 'react';
-import { CreateNewTaskPopup } from 'components';
-import { StyledButton } from './CreateTaskButton.styles';
+import { Button, CreateNewTaskPopup } from 'components';
 
 export const CreateTaskButton = () => {
   const [isPopupOpened, setIsPopupOpened] = useState(false);
 
   return (
     <>
-      <StyledButton
+      <Button
+        isPrimary
         onClick={() => {
           setIsPopupOpened(true);
         }}
       >
         Add new task
-      </StyledButton>
+      </Button>
       {isPopupOpened && <CreateNewTaskPopup onClose={() => setIsPopupOpened(false)} />}
     </>
   );

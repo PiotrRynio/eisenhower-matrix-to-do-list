@@ -7,7 +7,7 @@ export interface LabelProps {
 
 export type TypographyMixinsProps = LabelProps;
 
-export type TypographyVariant = 'body1' | 'label' | 'title' | 'sectionTitle';
+export type TypographyVariant = 'body1' | 'label' | 'title' | 'sectionTitle' | 'button';
 
 export type TypographyMixins = Record<
   TypographyVariant,

@@ -21,12 +21,14 @@ export const TasksList = ({ id, title }: TasksListProps) => {
   };
 
   const filteredTasks = tasks?.filter(filterTasksByLabels);
+  const tasksNumber = filteredTasks?.length;
+  const taskLabelText = `- ${tasksNumber || 'no'} ${tasksNumber === 1 ? 'task' : 'tasks'}`;
 
   return (
     <Wrapper>
       <StyledHeader>
         <Typography variant="listTitle">{title}</Typography>
-        <Typography variant="label"> - {filteredTasks?.length || 0} tasks </Typography>
+        <Typography variant="label"> {taskLabelText}</Typography>
       </StyledHeader>
       <StyledTasksList>
         {filteredTasks?.map(({ id, labels, isDone, name }) => (

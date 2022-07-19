@@ -16,6 +16,13 @@ export const typography: TypographyMixins = {
     font-family: ${({ theme }) => theme.fontFamilies.primary};
     color: ${({ theme, color }) => color || theme.colors.primaryText};
   `,
+  button: css`
+    font-size: ${({ theme }) => theme.fontSizes.sm};
+    line-height: ${({ theme }) => theme.lineHeights.sm};
+    font-weight: ${({ theme }) => theme.fontWeights.regular};
+    font-family: ${({ theme }) => theme.fontFamilies.primary};
+    color: ${({ theme }) => theme.colors.primary};
+  `,
   title: css`
     font-size: ${({ theme }) => theme.fontSizes['3xl']};
     line-height: ${({ theme }) => theme.lineHeights['3xl']};
