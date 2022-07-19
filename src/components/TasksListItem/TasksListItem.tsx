@@ -2,10 +2,12 @@ import { useSearchParams } from 'react-router-dom';
 import { Task } from 'types/Task';
 import { TaskCheckBox, Typography, TaskLabel } from 'components';
 import { Content, LabelsWrapper, Wrapper } from './TasksListItem.styles';
+import { useTasksLists } from '../../hooks';
 
 export type TasksListItemProps = Task;
 
-export const TasksListItem = ({ name, labels, isDone = false }: TasksListItemProps) => {
+export const TasksListItem = ({ id, name, labels, isDone = false }: TasksListItemProps) => {
+  const { changeTaskDoneStatus } = useTasksLists();
   const [searchParams, setSearchParams] = useSearchParams();
   const searchedLabels = searchParams.get('labels');
 
@@ -17,7 +19,7 @@ export const TasksListItem = ({ name, labels, isDone = false }: TasksListItemPro
 
   return (
     <Wrapper>
-      <TaskCheckBox isDone={isDone} onClick={() => {}} />
+      <TaskCheckBox isDone={isDone} onClick={(isChecked: boolean) => changeTaskDoneStatus(id, isChecked)} />
       <Content>
         <Typography variant="body1">{name}</Typography>
         <LabelsWrapper>

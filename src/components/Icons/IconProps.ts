@@ -1,6 +1,6 @@
 export interface IconProps {
   width?: number;
   height?: number;
-  ariaLabel: string;
+  ariaLabel?: string;
   fill?: string;
 }

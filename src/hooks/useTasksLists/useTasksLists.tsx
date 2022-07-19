@@ -11,18 +11,33 @@ export const useTasksLists = () => {
   const createNewTask = (newTask: Task, taskListsId: TaskListsIds) => {
     const newTaskId = uuidv4();
     const newTasksList = tasksLists.map((list) => {
-      if (list.id === taskListsId) {
-        return {
-          ...list,
-          tasks: [...list.tasks, { ...newTask, id: newTaskId }],
-        };
+      if (list.id !== taskListsId) {
+        return list;
       }
-      return list;
+      return {
+        ...list,
+        tasks: [...list.tasks, { ...newTask, id: newTaskId }],
+      };
     });
     setTasksLists(newTasksList);
   };
 
   const getTasksList = (taskListsId: TaskListsIds) => tasksLists.find((list) => list.id === taskListsId);
 
-  return { tasksLists, getTasksList, createNewTask };
+  const changeTaskDoneStatus = (taskId: string, newIsDone: boolean) => {
+    const newTasksList = tasksLists.map((list) => {
+      return {
+        ...list,
+        tasks: list.tasks.map((task) => {
+          if (task.id === taskId) {
+            return { ...task, isDone: newIsDone };
+          }
+          return task;
+        }),
+      };
+    });
+    setTasksLists(newTasksList);
+  };
+
+  return { tasksLists, getTasksList, createNewTask, changeTaskDoneStatus };
 };

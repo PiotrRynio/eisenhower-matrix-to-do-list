@@ -1,6 +1,6 @@
 import { IconProps } from '../IconProps';
 
-export const PlusIcon = ({ width = 20, height = 20, ariaLabel }: IconProps) => {
+export const PlusIcon = ({ width = 20, height = 20, ariaLabel = 'plus' }: IconProps) => {
   return (
     <svg
       width={width}

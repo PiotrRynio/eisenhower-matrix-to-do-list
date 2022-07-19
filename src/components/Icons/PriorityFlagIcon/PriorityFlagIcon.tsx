@@ -5,7 +5,12 @@ type FlagIconProps = IconProps & {
   priority?: 'doIt' | 'scheduleIt' | 'delegateIt' | 'deleteIt';
 };
 
-export const PriorityFlagIcon = ({ priority = 'deleteIt', width = 15, height = 17, ariaLabel }: FlagIconProps) => {
+export const PriorityFlagIcon = ({
+  priority = 'deleteIt',
+  width = 15,
+  height = 17,
+  ariaLabel = 'priority flag',
+}: FlagIconProps) => {
   const theme = useTheme();
 
   const priorityLabel = {
