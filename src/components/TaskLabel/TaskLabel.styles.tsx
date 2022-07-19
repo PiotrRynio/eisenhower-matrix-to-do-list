@@ -10,17 +10,19 @@ export const Label = styled.button<{ isChecked?: boolean }>`
   border: 1px solid ${({ theme }) => theme.colors.border};
   cursor: default;
 
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.primary};
+      background-color: ${({ theme }) => theme.colors.background};
+      color: ${({ theme }) => theme.colors.primary};
+      cursor: pointer;
+    }
+  }
+
   ${({ isChecked }) =>
     isChecked &&
     css`
       background-color: ${({ theme }) => theme.colors.primary};
       color: ${({ theme }) => theme.colors.primaryOpposed};
     `}
-
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.primary};
-    background-color: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.primary};
-    cursor: pointer;
-  }
 `;

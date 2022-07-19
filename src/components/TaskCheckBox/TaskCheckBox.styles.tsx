@@ -16,4 +16,10 @@ export const StyledCheckboxIconWrapper = styled.span<{ isChecked: boolean }>`
   border: 2px solid ${({ isChecked, theme }) => (isChecked ? theme.colors.primary : theme.colors.disabled)};
   border-radius: 50%;
   background: ${({ theme }) => theme.colors.transparent};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    &:hover {
+      border-color: ${({ isChecked, theme }) => (isChecked ? theme.colors.disabled : theme.colors.primary)};
+    }
+  }
 `;

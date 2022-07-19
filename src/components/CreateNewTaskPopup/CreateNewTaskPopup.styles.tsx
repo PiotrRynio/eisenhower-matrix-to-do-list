@@ -51,8 +51,10 @@ export const AddLabelButton = styled.button`
   background-color: ${({ theme }) => theme.colors.transparent};
   cursor: pointer;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.primary};
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.primary};
+    }
   }
 `;
 

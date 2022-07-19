@@ -8,8 +8,10 @@ export const StyledButton = styled.button<{ isPrimary?: boolean }>`
   background-color: ${({ theme }) => theme.colors.primaryOpposed};
   cursor: pointer;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.primaryOpposedHovered};
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.primaryOpposedHovered};
+    }
   }
 
   ${({ isPrimary, theme }) =>
@@ -19,8 +21,10 @@ export const StyledButton = styled.button<{ isPrimary?: boolean }>`
       background-color: ${theme.colors.primary};
       color: ${theme.colors.primaryOpposed};
 
-      &:hover {
-        background-color: ${theme.colors.primaryHovered};
+      @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+        &:hover {
+          background-color: ${theme.colors.primaryHovered};
+        }
       }
     `}
 `;
