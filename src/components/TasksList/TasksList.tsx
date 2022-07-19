@@ -5,9 +5,9 @@ import { useTasksLists } from 'hooks';
 import { Typography, TasksListItem } from 'components';
 import { Wrapper, StyledTasksList, StyledHeader } from './TasksList.styles';
 
-type TasksListProps = { id: TaskListsIds; title: string };
+type TasksListProps = { id: TaskListsIds; title: string; isDoneTasksDisplayed?: boolean };
 
-export const TasksList = ({ id, title }: TasksListProps) => {
+export const TasksList = ({ id, title, isDoneTasksDisplayed }: TasksListProps) => {
   const [searchParams] = useSearchParams();
   const { getTasksList } = useTasksLists();
   const tasks = getTasksList(id)?.tasks;
@@ -20,7 +20,7 @@ export const TasksList = ({ id, title }: TasksListProps) => {
     return labels.includes(searchedLabels);
   };
 
-  const filteredTasks = tasks?.filter(filterTasksByLabels);
+  const filteredTasks = tasks?.filter(filterTasksByLabels).filter(({ isDone }) => !!isDoneTasksDisplayed || !isDone);
   const tasksNumber = filteredTasks?.length;
   const taskLabelText = `- ${tasksNumber || 'no'} ${tasksNumber === 1 ? 'task' : 'tasks'}`;
 
