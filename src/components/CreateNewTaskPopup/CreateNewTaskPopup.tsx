@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import Select from 'react-select';
 import { Task } from 'types/Task';
 import { TaskListsIds } from 'types/TaskListsIds';
 import { tasksListsSchema } from 'constants/tasksListsSchema';
@@ -14,19 +13,20 @@ import {
   LabelInput,
   LabelInputWrapper,
   AddLabelButton,
+  StyledSelect,
 } from './CreateNewTaskPopup.styles';
 
 export type CreateNewTaskPopupProps = {
   onClose: () => void;
 };
 
-type ListsOptions = {
+type ListsOption = {
   value: TaskListsIds;
   label: string;
 };
 
 export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
-  const listsOptions: ListsOptions[] = useMemo(
+  const listsOptions: ListsOption[] = useMemo(
     () =>
       tasksListsSchema.map((taskList) => ({
         value: taskList.id,
@@ -34,7 +34,7 @@ export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
       })),
     [tasksListsSchema],
   );
-  const [selectedList, setSelectedList] = useState<ListsOptions>(listsOptions[3]);
+  const [selectedList, setSelectedList] = useState<ListsOption>(listsOptions[3]);
 
   const [newTaskName, setNewTaskName] = useState('');
   const { tasksLabels, addTaskLabel } = useTaskLabel();
@@ -121,10 +121,10 @@ export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
           <LabelInput value={newTasksLabel} onChange={handleTaskLabelChange} placeholder="Add label..." />
         </LabelInputWrapper>
 
-        <Select
+        <StyledSelect
           defaultValue={selectedList}
           onChange={(event) => {
-            setSelectedList(event || selectedList);
+            setSelectedList((event as ListsOption) || selectedList);
           }}
           options={listsOptions}
           isSearchable={false}

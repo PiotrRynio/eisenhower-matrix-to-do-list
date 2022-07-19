@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Select from 'react-select';
 import { POPUP_Z_INDEX } from 'constants/zIndexs';
 
 export const Popup = styled.div`
@@ -61,6 +62,10 @@ export const LabelInput = styled.input`
   border: none;
   font-weight: ${({ theme }) => theme.fontWeights.regular};
   outline: none;
+`;
+
+export const StyledSelect = styled(Select)`
+  ${({ theme }) => theme.mixins.typography.label};
 `;
 
 export const Buttons = styled.div`
