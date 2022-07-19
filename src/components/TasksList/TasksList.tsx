@@ -3,7 +3,7 @@ import { Droppable, DroppableProvided } from 'react-beautiful-dnd';
 import { TaskListsIds } from 'types/TaskListsIds';
 import { Task } from 'types/Task';
 import { useTasksLists } from 'hooks';
-import { Typography, TasksListItem } from 'components';
+import { Typography, TasksListItem, PriorityFlagIcon } from 'components';
 import { Wrapper, StyledTasksList, StyledHeader } from './TasksList.styles';
 
 type TasksListProps = { id: TaskListsIds; title: string; isDoneTasksDisplayed?: boolean };
@@ -28,6 +28,7 @@ export const TasksList = ({ id, title, isDoneTasksDisplayed }: TasksListProps) =
   return (
     <Wrapper>
       <StyledHeader>
+        <PriorityFlagIcon priority={id} />
         <Typography variant="listTitle">{title}</Typography>
         <Typography variant="label"> {taskLabelText}</Typography>
       </StyledHeader>

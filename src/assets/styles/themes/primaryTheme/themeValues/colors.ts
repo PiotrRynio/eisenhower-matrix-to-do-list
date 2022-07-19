@@ -19,8 +19,8 @@ export const colors: Colors = {
 
   transparent: 'transparent',
 
-  doItPriority: '#E44838',
-  scheduleItPriority: '#FF9E0F',
-  delegateItPriority: '#3672EA',
-  deleteItPriority: '#9C9C9C',
+  urgentAndImportantPriority: '#E44838',
+  importantAndNotUrgentPriority: '#FF9E0F',
+  urgentAndNotImportantPriority: '#3672EA',
+  notUrgentAndNotImportantPriority: '#9C9C9C',
 };

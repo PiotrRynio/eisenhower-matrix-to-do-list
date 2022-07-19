@@ -11,9 +11,9 @@ export type Color =
   | 'backgroundHovered'
   | 'transparent'
   | 'border'
-  | 'doItPriority'
-  | 'scheduleItPriority'
-  | 'delegateItPriority'
-  | 'deleteItPriority';
+  | 'urgentAndImportantPriority'
+  | 'importantAndNotUrgentPriority'
+  | 'urgentAndNotImportantPriority'
+  | 'notUrgentAndNotImportantPriority';
 
 export type Colors = Record<Color, string>;

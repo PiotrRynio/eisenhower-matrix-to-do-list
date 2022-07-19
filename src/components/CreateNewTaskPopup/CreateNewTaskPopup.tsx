@@ -4,7 +4,7 @@ import { Task } from 'types/Task';
 import { TaskListsIds } from 'types/TaskListsIds';
 import { tasksListsSchema } from 'constants/tasksListsSchema';
 import { useTasksLists, useTaskLabel } from 'hooks';
-import { Button, PlusIcon, TaskLabel, Overlay } from 'components';
+import { Button, PlusIcon, TaskLabel, Overlay, PriorityFlagIcon, Typography } from 'components';
 import {
   Buttons,
   TaskNameInput,
@@ -22,15 +22,20 @@ export type CreateNewTaskPopupProps = {
 
 type ListsOption = {
   value: TaskListsIds;
-  label: string;
+  label: React.ReactNode;
 };
 
 export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
-  const listsOptions: ListsOption[] = useMemo(
+  const listsOptions = useMemo(
     () =>
       tasksListsSchema.map((taskList) => ({
         value: taskList.id,
-        label: taskList.title,
+        label: (
+          <>
+            <PriorityFlagIcon priority={taskList.id} width={15} height={10} />
+            <Typography variant="label">{taskList.title}</Typography>
+          </>
+        ),
       })),
     [tasksListsSchema],
   );
