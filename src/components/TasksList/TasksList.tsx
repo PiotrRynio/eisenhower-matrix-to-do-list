@@ -3,7 +3,7 @@ import { TaskListsIds } from 'types/TaskListsIds';
 import { Task } from 'types/Task';
 import { useTasksLists } from 'hooks';
 import { Typography, TasksListItem } from 'components';
-import { Wrapper, StyledTasksList } from './TasksList.styles';
+import { Wrapper, StyledTasksList, StyledHeader } from './TasksList.styles';
 
 type TasksListProps = { id: TaskListsIds; title: string };
 
@@ -20,11 +20,16 @@ export const TasksList = ({ id, title }: TasksListProps) => {
     return labels.includes(searchedLabels);
   };
 
+  const filteredTasks = tasks?.filter(filterTasksByLabels);
+
   return (
     <Wrapper>
-      <Typography variant="listTitle">{title}</Typography>
+      <StyledHeader>
+        <Typography variant="listTitle">{title}</Typography>
+        <Typography variant="label"> - {filteredTasks?.length || 0} tasks </Typography>
+      </StyledHeader>
       <StyledTasksList>
-        {tasks?.filter(filterTasksByLabels).map(({ id, labels, isDone, name }) => (
+        {filteredTasks?.map(({ id, labels, isDone, name }) => (
           <TasksListItem key={id} id={id} name={name} labels={labels} isDone={isDone} />
         ))}
       </StyledTasksList>

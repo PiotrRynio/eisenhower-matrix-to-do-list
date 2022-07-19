@@ -9,7 +9,9 @@ export const Home = () => {
 
   return (
     <article>
-      <Typography variant="title">{FULL_APP_NAME}</Typography>
+      <header>
+        <Typography variant="title">{FULL_APP_NAME}</Typography>
+      </header>
       <TaskLists>
         {tasksListsSchema.map((list) => (
           <TasksList key={list.id} {...list} />

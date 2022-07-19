@@ -7,6 +7,12 @@ export const Wrapper = styled.li`
   flex-direction: column;
 `;
 
+export const StyledHeader = styled.header`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
 export const StyledTasksList = styled.ul`
   border-top: 1px solid ${({ theme }) => theme.colors.border};
   list-style: none;
