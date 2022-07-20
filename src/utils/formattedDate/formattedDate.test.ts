@@ -17,7 +17,7 @@ describe('formattedLastUpdateDate', () => {
 
   it('should return "today", if the day is the same', () => {
     // given
-    jest.useFakeTimers().setSystemTime(new Date('2022-05-02'));
+    jest.useFakeTimers().setSystemTime(new Date('2022-05-01'));
 
     // when
     const result = formattedDate(testDate);
@@ -61,7 +61,7 @@ describe('formattedLastUpdateDate', () => {
 
   it('should return number of days, if it is day before yesterday', () => {
     // given
-    jest.useFakeTimers().setSystemTime(new Date('2022-05-03'));
+    jest.useFakeTimers().setSystemTime(new Date('2022-04-29'));
 
     // when
     const result = formattedDate(testDate);
