@@ -26,6 +26,13 @@ export const TaskNameInput = styled.input`
   outline: none;
 `;
 
+export const TaskDescriptionInput = styled.input`
+  ${({ theme }) => theme.mixins.typography.label};
+  width: 100%;
+  border: none;
+  outline: none;
+`;
+
 export const Buttons = styled.div`
   display: flex;
   width: 100%;

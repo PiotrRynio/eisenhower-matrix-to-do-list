@@ -3,4 +3,5 @@ export type Task = {
   name: string;
   labels: string[];
   isDone?: boolean;
+  description?: string;
 };

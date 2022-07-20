@@ -35,8 +35,16 @@ export const TasksList = ({ id, title, isDoneTasksDisplayed }: TasksListProps) =
       <Droppable droppableId={id} isDropDisabled={!!searchParams.get('labels')}>
         {(provided: DroppableProvided) => (
           <StyledTasksList ref={provided.innerRef} {...provided.droppableProps}>
-            {filteredTasks?.map(({ id, labels, isDone, name }, index) => (
-              <TasksListItem key={id} id={id} name={name} labels={labels} isDone={isDone} index={index} />
+            {filteredTasks?.map(({ id, labels, isDone, name, description }, index) => (
+              <TasksListItem
+                key={id}
+                id={id}
+                name={name}
+                labels={labels}
+                isDone={isDone}
+                index={index}
+                description={description}
+              />
             ))}
             {provided.placeholder}
           </StyledTasksList>

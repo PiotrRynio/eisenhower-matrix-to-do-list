@@ -6,13 +6,19 @@ export const tasksListsMock: TasksList[] = [
     title: 'Urgent & Important',
     tasks: [
       { id: '9fa14265-4532-45a9-85ea-5d428d547870', name: 'Make project', labels: ['company'] },
-      { id: '2dc2fb5d-6dee-494d-843c-56b8ea2b2917', name: 'Hire Peter', labels: ['company'] },
+      {
+        id: '2dc2fb5d-6dee-494d-843c-56b8ea2b2917',
+        name: 'Hire Peter',
+        labels: ['company'],
+        description: 'He is the best candidate ;)',
+      },
       { id: 'ae779afb-d41f-4524-9c97-d9b5de7536e1', name: 'Learn new programming things', labels: ['programming'] },
       {
         id: '731cd85d-a46c-41c4-bcea-f8793f553b5a',
         name: 'Call Peter',
         labels: ['company'],
         isDone: true,
+        description: 'Call Peter about technical interview. +48 518308508',
       },
     ],
   },
