@@ -69,8 +69,8 @@ export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
     <Overlay isOpened={true} onOverlayClick={onClose}>
       <Popup>
         <TaskNameInputContainer>
+          {isValidationFailed && <ErrorHintTypography variant="label"> (required) </ErrorHintTypography>}
           <TaskNameInput value={newTaskName} onChange={handleTaskNameChange} placeholder="Task name..." required />{' '}
-          {isValidationFailed && <ErrorHintTypography variant="label">(required)</ErrorHintTypography>}
         </TaskNameInputContainer>
         <TaskDescriptionInput
           value={taskDescription}
