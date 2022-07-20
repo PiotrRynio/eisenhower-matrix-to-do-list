@@ -1,5 +1,18 @@
-import { css } from 'styled-components';
-import { LabelProps, TypographyMixins } from '../../types/mixinsValues/TypographyMixins';
+import { css, DefaultTheme, Interpolation, ThemedStyledProps, ThemeProps } from 'styled-components';
+import { Color } from '../../types';
+
+export interface LabelProps {
+  color?: Color;
+}
+
+export type TypographyMixinsProps = LabelProps;
+
+export type TypographyVariant = 'body1' | 'small' | 'title' | 'sectionTitle' | 'button';
+
+export type TypographyMixins = Record<
+  TypographyVariant,
+  ReadonlyArray<Interpolation<ThemeProps<DefaultTheme> | ThemedStyledProps<LabelProps, DefaultTheme>>>
+>;
 
 export const typography: TypographyMixins = {
   body1: css`

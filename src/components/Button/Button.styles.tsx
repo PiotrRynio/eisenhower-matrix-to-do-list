@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const StyledButton = styled.button<{ isPrimary?: boolean }>`
-  ${({ theme }) => theme.mixins.typography.button}
+  ${({ theme }) => theme.commonMixins.typography.button}
   display: flex;
   justify-content: center;
   align-items: center;

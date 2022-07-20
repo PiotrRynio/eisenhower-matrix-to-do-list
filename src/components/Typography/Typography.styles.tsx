@@ -6,25 +6,25 @@ export type StyledTypographyProps = {
 };
 
 export const Body1Typography = styled.p<StyledTypographyProps>`
-  ${({ theme }) => theme.mixins.typography.body1};
+  ${({ theme }) => theme.commonMixins.typography.body1};
   display: ${({ display }) => display || 'inline-block'};
   text-align: ${({ textAlign }) => textAlign || 'left'};
 `;
 
 export const LabelTypography = styled.p<StyledTypographyProps>`
-  ${({ theme }) => theme.mixins.typography.small};
+  ${({ theme }) => theme.commonMixins.typography.small};
   display: ${({ display }) => display || 'inline-block'};
   text-align: ${({ textAlign }) => textAlign || 'left'};
 `;
 
 export const TitleTypography = styled.h2<StyledTypographyProps>`
-  ${({ theme }) => theme.mixins.typography.title};
+  ${({ theme }) => theme.commonMixins.typography.title};
   display: ${({ display }) => display || 'inline-block'};
   text-align: ${({ textAlign }) => textAlign || 'left'};
 `;
 
 export const ListTitleTypography = styled.h4<StyledTypographyProps>`
-  ${({ theme }) => theme.mixins.typography.sectionTitle};
+  ${({ theme }) => theme.commonMixins.typography.sectionTitle};
   display: ${({ display }) => display || 'inline-block'};
   text-align: ${({ textAlign }) => textAlign || 'left'};
 `;

@@ -1,6 +1,6 @@
-import { Breakpoints, FontSizes, FontWeights, LineHeights, Sizes } from '../common';
+import { Breakpoints, FontSizes, FontWeights, LineHeights, CommonMixins, Sizes } from '../common';
 import { Colors, FontFamilies } from './themeValues';
-import { Mixins } from './mixinsValues';
+import { ThemeMixins } from '../primaryTheme/themeValues';
 
 export interface Theme {
   breakpoints: Breakpoints;
@@ -9,6 +9,7 @@ export interface Theme {
   fontSizes: FontSizes;
   fontWeights: FontWeights;
   lineHeights: LineHeights;
-  mixins: Mixins;
   sizes: Sizes;
+  commonMixins: CommonMixins;
+  themeMixins: ThemeMixins;
 }

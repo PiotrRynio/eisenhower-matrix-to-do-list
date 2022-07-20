@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import { TypographyMixinsProps } from 'assets/styles/themes/types/mixinsValues/TypographyMixins';
 import {
   Body1Typography,
   LabelTypography,
@@ -7,6 +6,7 @@ import {
   StyledTypographyProps,
   TitleTypography,
 } from './Typography.styles';
+import { TypographyMixinsProps } from 'assets/styles/themes/common/mixinsValues/typography';
 
 type TypographyVariant = 'body1' | 'small' | 'title' | 'listTitle';
 

@@ -27,7 +27,7 @@ export const TaskNameInputContainer = styled.label`
 `;
 
 export const TaskNameInput = styled.input`
-  ${({ theme }) => theme.mixins.typography.body1};
+  ${({ theme }) => theme.commonMixins.typography.body1};
   border: none;
   padding: 2px;
   font-weight: ${({ theme }) => theme.fontWeights.bold};
@@ -39,7 +39,7 @@ export const ErrorHintTypography = styled(Typography)`
 `;
 
 export const TaskDescriptionInput = styled.input`
-  ${({ theme }) => theme.mixins.typography.small};
+  ${({ theme }) => theme.commonMixins.typography.small};
   width: 100%;
   padding: 2px;
   border: none;
