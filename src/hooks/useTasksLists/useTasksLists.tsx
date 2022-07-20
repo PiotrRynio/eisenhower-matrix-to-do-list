@@ -8,41 +8,45 @@ import { tasksListsMock } from 'mocks/taskListMock';
 export const useTasksLists = () => {
   const [tasksLists, setTasksLists] = useLocalStorage<TasksList[]>('tasksLists', tasksListsMock);
 
-  const tasksByIsDonSorter = (a: Task, b: Task) => {
-    if (a.isDone === b.isDone) {
+  const tasksByIsDonSorter = (taskA: Task, taskB: Task) => {
+    if (taskA.isDone === taskB.isDone) {
       return 0;
     }
-    return a.isDone ? 1 : -1;
+    return taskB.isDone ? -1 : 1;
   };
 
   const createNewTask = (newTask: Task, taskListsId: TaskListsIds) => {
     const newTaskId = uuidv4();
-    const newTasksList = tasksLists.map((list) => {
+    const newTasksLists = tasksLists.map((list) => {
       if (list.id !== taskListsId) {
         return list;
       }
+      const newTasks = [...list.tasks, { ...newTask, id: newTaskId }];
+      const newSortedTasks = newTasks.sort(tasksByIsDonSorter);
       return {
         ...list,
-        tasks: [...list.tasks, { ...newTask, id: newTaskId }],
+        tasks: newSortedTasks,
       };
     });
-    setTasksLists(newTasksList);
+    setTasksLists(newTasksLists);
   };
 
   const getTasksList = (taskListsId: TaskListsIds) => tasksLists.find((list) => list.id === taskListsId);
 
   const changeTaskDoneStatus = (taskId: string, newIsDone: boolean) => {
     const newTasksList = tasksLists.map((list) => {
+      const newTasks = list.tasks
+        .map((task) => {
+          if (task.id !== taskId) {
+            return task;
+          }
+          return { ...task, isDone: newIsDone };
+        })
+        .sort(tasksByIsDonSorter);
+
       return {
         ...list,
-        tasks: list.tasks
-          .map((task) => {
-            if (task.id === taskId) {
-              return { ...task, isDone: newIsDone };
-            }
-            return task;
-          })
-          .sort(tasksByIsDonSorter),
+        tasks: newTasks,
       };
     });
     setTasksLists(newTasksList);
