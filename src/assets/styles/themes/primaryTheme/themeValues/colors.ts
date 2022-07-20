@@ -10,12 +10,12 @@ export const colors: Colors = {
   linkText: '#166CD7',
 
   disabled: '#8D959F',
-  idleIcon: '#ddd',
 
   background: '#fff',
   backgroundHovered: 'rgba(255,255,255,0.3)',
 
-  border: '#f0f0f0',
+  softBorder: '#f0f0f0',
+  hardBorder: '#ddd',
 
   transparent: 'transparent',
 

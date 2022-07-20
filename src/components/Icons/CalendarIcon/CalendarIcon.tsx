@@ -1,20 +1,20 @@
 import { useTheme } from 'styled-components';
 import { IconProps } from '../IconProps';
 
-export const DeleteForeverIcon = ({ width = 14, height = 18, ariaLabel = 'delete forever' }: IconProps) => {
+export const CalendarIcon = ({ width = 18, height = 20, ariaLabel = 'calendar' }: IconProps) => {
   const { colors } = useTheme();
   return (
     <svg
       width={width}
       height={height}
-      viewBox="0 0 14 18"
+      viewBox="0 0 18 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-labelledby={ariaLabel}
     >
       <title>{ariaLabel}</title>
       <path
-        d="M9.12 7.47L7 9.59L4.87 7.47L3.46 8.88L5.59 11L3.47 13.12L4.88 14.53L7 12.41L9.12 14.53L10.53 13.12L8.41 11L10.53 8.88L9.12 7.47ZM10.5 1L9.5 0H4.5L3.5 1H0V3H14V1H10.5ZM1 16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V4H1V16ZM3 6H11V16H3V6Z"
+        d="M16 2H15V0H13V2H5V0H3V2H2C0.89 2 0.00999999 2.9 0.00999999 4L0 18C0 19.1 0.89 20 2 20H16C17.1 20 18 19.1 18 18V4C18 2.9 17.1 2 16 2ZM16 18H2V8H16V18ZM16 6H2V4H16V6ZM9 11H14V16H9V11Z"
         fill={colors.hardBorder}
       />
     </svg>

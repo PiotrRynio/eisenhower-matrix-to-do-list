@@ -7,7 +7,7 @@ export const Label = styled.button<{ isChecked?: boolean }>`
   justify-content: center;
   padding: 2px 8px;
   border-radius: 16px;
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  border: 1px solid ${({ theme }) => theme.colors.softBorder};
   cursor: default;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {

@@ -14,6 +14,6 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledTasksList = styled.ul`
-  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  border-top: 1px solid ${({ theme }) => theme.colors.softBorder};
   list-style: none;
 `;

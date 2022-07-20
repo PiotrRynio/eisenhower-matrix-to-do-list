@@ -5,7 +5,12 @@ export const tasksListsMock: TasksList[] = [
     id: 'URGENT_AND_IMPORTANT',
     title: 'Urgent & Important',
     tasks: [
-      { id: '9fa14265-4532-45a9-85ea-5d428d547870', name: 'Make project', labels: ['company'] },
+      {
+        id: '9fa14265-4532-45a9-85ea-5d428d547870',
+        name: 'Make project',
+        labels: ['company'],
+        deadlineDate: new Date(),
+      },
       {
         id: '2dc2fb5d-6dee-494d-843c-56b8ea2b2917',
         name: 'Hire Peter',

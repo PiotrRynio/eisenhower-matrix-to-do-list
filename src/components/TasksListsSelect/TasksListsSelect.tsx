@@ -3,8 +3,8 @@ import React, { useMemo, useState } from 'react';
 import { ValueType } from 'react-select/lib/types';
 import { TaskListsIds } from 'types/TaskListsIds';
 import { tasksListsSchema } from 'constants/tasksListsSchema';
-import { PriorityFlagIcon } from 'components';
-import { StyledSelect } from './TasksListsSelect.styles';
+import { PriorityFlagIcon, Typography } from 'components';
+import { StyledSelect, Wrapper } from './TasksListsSelect.styles';
 
 export type ListsOption = {
   value: TaskListsIds;
@@ -36,6 +36,9 @@ export const TasksListsSelect = ({ onChange }: TasksListsSelectProps) => {
   };
 
   return (
-    <StyledSelect defaultValue={selectedList} onChange={handleChange} options={listsOptions} isSearchable={false} />
+    <Wrapper>
+      <Typography variant="label">Priority:</Typography>
+      <StyledSelect defaultValue={selectedList} onChange={handleChange} options={listsOptions} isSearchable={false} />
+    </Wrapper>
   );
 };

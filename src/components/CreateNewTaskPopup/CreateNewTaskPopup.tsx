@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Task } from 'types/Task';
 import { TaskListsIds } from 'types/TaskListsIds';
 import { useTasksLists } from 'hooks';
-import { Button, Overlay, TasksListsSelect, TasksLabelsSelect } from 'components';
+import { Button, Overlay, TasksListsSelect, TasksLabelsSelect, SimpleDatePicker } from 'components';
 import { Buttons, TaskNameInput, Popup, TaskDescriptionInput } from './CreateNewTaskPopup.styles';
 
 export type CreateNewTaskPopupProps = {
@@ -15,6 +15,7 @@ export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
   const [newTaskName, setNewTaskName] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
   const [checkedLabels, setCheckedLabels] = useState<string[]>([]);
+  const [taskDeadline, setTaskDeadline] = useState<Date | undefined>(undefined);
 
   const { createNewTask } = useTasksLists();
 
@@ -45,6 +46,7 @@ export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
       name: newTaskName,
       labels: checkedLabels,
       description: taskDescription,
+      deadlineDate: taskDeadline,
     };
     createNewTask(newTask, selectedList || 'NOT_URGENT_AND_NOT_IMPORTANT');
     onClose();
@@ -63,6 +65,8 @@ export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
         <TasksLabelsSelect onChange={setCheckedLabels} />
 
         <TasksListsSelect onChange={setSelectedList} />
+
+        <SimpleDatePicker onChange={setTaskDeadline} />
 
         <Buttons>
           <Button onClick={onClose}>Cancel</Button>

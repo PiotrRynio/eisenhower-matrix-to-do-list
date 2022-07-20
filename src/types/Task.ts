@@ -4,4 +4,5 @@ export type Task = {
   labels: string[];
   isDone?: boolean;
   description?: string;
+  deadlineDate?: Date;
 };
