@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
+import { DATE_PICKER_ICON_CONTAINER } from 'constants/zIndexs';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export const Wrapper = styled.label`
@@ -14,7 +15,7 @@ export const DataPickerContainer = styled.div`
 `;
 
 export const IconContainer = styled.div`
-  z-index: 1;
+  z-index: ${DATE_PICKER_ICON_CONTAINER};
   position: absolute;
   top: 8px;
   left: 8px;

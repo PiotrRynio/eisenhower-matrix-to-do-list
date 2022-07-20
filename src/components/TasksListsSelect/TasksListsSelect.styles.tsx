@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import Select from 'react-select';
+import { PRIORITY_SELECT } from 'constants/zIndexs';
 
 export const Wrapper = styled.label`
+  z-index: ${PRIORITY_SELECT};
   display: flex;
   flex-direction: column;
   gap: 2px;
