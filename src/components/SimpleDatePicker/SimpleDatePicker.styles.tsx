@@ -10,7 +10,7 @@ export const Wrapper = styled.label`
   width: ${({ theme }) => theme.sizes.selectBoxWidth.default};
 `;
 
-export const DataPickerContainer = styled.div`
+export const DatePickerContainer = styled.div`
   position: relative;
 `;
 

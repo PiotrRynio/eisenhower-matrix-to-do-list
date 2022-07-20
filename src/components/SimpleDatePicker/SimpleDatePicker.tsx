@@ -1,10 +1,10 @@
 import React from 'react';
 import { CalendarIcon, Typography } from 'components';
-import { DataPickerContainer, IconContainer, StyledDatePicker, Wrapper } from './SimpleDatePicker.styles';
+import { DatePickerContainer, IconContainer, StyledDatePicker, Wrapper } from './SimpleDatePicker.styles';
 
 export type SimpleDatePickerProps = {
   value: Date | undefined;
-  onChange: (data: Date) => void;
+  onChange: (date: Date) => void;
 };
 
 export const SimpleDatePicker = ({ value, onChange }: SimpleDatePickerProps) => {
@@ -15,7 +15,7 @@ export const SimpleDatePicker = ({ value, onChange }: SimpleDatePickerProps) => 
   return (
     <Wrapper>
       <Typography variant="small">Deadline (optional):</Typography>
-      <DataPickerContainer>
+      <DatePickerContainer>
         <IconContainer>
           <CalendarIcon />
         </IconContainer>
@@ -25,7 +25,7 @@ export const SimpleDatePicker = ({ value, onChange }: SimpleDatePickerProps) => 
           minDate={new Date()}
           placeholderText="--/--/---- (optional)"
         />
-      </DataPickerContainer>
+      </DatePickerContainer>
     </Wrapper>
   );
 };
