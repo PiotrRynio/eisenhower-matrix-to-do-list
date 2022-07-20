@@ -4,7 +4,7 @@ import { Task } from 'types/Task';
 import { TaskListsIds } from 'types/TaskListsIds';
 import { useTasksLists } from 'hooks';
 import { TaskCheckBox, Typography, TaskLabel, DeleteForeverIcon } from 'components';
-import { formattedDate } from 'utils';
+import { formatDate } from 'utils';
 import { Content, LabelsWrapper, Wrapper, RemoveTaskButton, StyledDateTypography } from './TasksListItem.styles';
 
 export type TasksListItemProps = Task & { index: number; listId: TaskListsIds };
@@ -43,9 +43,7 @@ export const TasksListItem = ({
 
             <LabelsWrapper>
               {isDeadlineDisplayed && (
-                <StyledDateTypography variant="small">
-                  || {formattedDate(new Date(deadlineDate))} ||
-                </StyledDateTypography>
+                <StyledDateTypography variant="small">|| {formatDate(new Date(deadlineDate))} ||</StyledDateTypography>
               )}
               {labels.map((label: string) => (
                 <TaskLabel key={label} name={label} isChecked={label === searchedLabels} onClick={handleLabelClicked} />

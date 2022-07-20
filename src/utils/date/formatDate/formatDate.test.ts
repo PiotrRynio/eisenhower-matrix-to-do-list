@@ -1,4 +1,4 @@
-import { formattedDate } from './formattedDate';
+import { formatDate } from './formatDate';
 
 describe('formattedLastUpdateDate', () => {
   // 01.05.2022
@@ -9,7 +9,7 @@ describe('formattedLastUpdateDate', () => {
     jest.useFakeTimers().setSystemTime(new Date('2024-06-15'));
 
     // when
-    const result = formattedDate(testDate);
+    const result = formatDate(testDate);
 
     // then
     expect(result).toBe('1 May 2022');
@@ -20,7 +20,7 @@ describe('formattedLastUpdateDate', () => {
     jest.useFakeTimers().setSystemTime(new Date('2022-05-01'));
 
     // when
-    const result = formattedDate(testDate);
+    const result = formatDate(testDate);
 
     // then
     expect(result).toBe('today');
@@ -31,7 +31,7 @@ describe('formattedLastUpdateDate', () => {
     jest.useFakeTimers().setSystemTime(new Date('2022-05-02'));
 
     // when
-    const result = formattedDate(testDate);
+    const result = formatDate(testDate);
 
     // then
     expect(result).toBe('yesterday');
@@ -42,7 +42,7 @@ describe('formattedLastUpdateDate', () => {
     jest.useFakeTimers().setSystemTime(new Date('2022-04-30'));
 
     // when
-    const result = formattedDate(testDate);
+    const result = formatDate(testDate);
 
     // then
     expect(result).toBe('tomorrow');
@@ -53,7 +53,7 @@ describe('formattedLastUpdateDate', () => {
     jest.useFakeTimers().setSystemTime(new Date('2022-05-03'));
 
     // when
-    const result = formattedDate(testDate);
+    const result = formatDate(testDate);
 
     // then
     expect(result).toBe('1 May 2022');
@@ -64,7 +64,7 @@ describe('formattedLastUpdateDate', () => {
     jest.useFakeTimers().setSystemTime(new Date('2022-04-29'));
 
     // when
-    const result = formattedDate(testDate);
+    const result = formatDate(testDate);
 
     // then
     expect(result).toBe('1 May 2022');
