@@ -11,3 +11,4 @@ export * from './CreateTaskButton';
 export * from './Overlay';
 export * from './CreateNewTaskPopup';
 export * from './Button';
+export * from './TasksListsSelect';

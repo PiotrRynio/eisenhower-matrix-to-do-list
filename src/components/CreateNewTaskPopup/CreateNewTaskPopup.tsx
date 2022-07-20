@@ -1,10 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Task } from 'types/Task';
-import { TaskListsIds } from 'types/TaskListsIds';
-import { tasksListsSchema } from 'constants/tasksListsSchema';
 import { useTasksLists, useTaskLabel } from 'hooks';
-import { Button, PlusIcon, TaskLabel, Overlay, PriorityFlagIcon, Typography } from 'components';
+import { Button, PlusIcon, TaskLabel, Overlay, TasksListsSelect } from 'components';
 import {
   Buttons,
   TaskNameInput,
@@ -13,34 +11,15 @@ import {
   LabelInput,
   LabelInputWrapper,
   AddLabelButton,
-  StyledSelect,
 } from './CreateNewTaskPopup.styles';
+import { TaskListsIds } from '../../types/TaskListsIds';
 
 export type CreateNewTaskPopupProps = {
   onClose: () => void;
 };
 
-type ListsOption = {
-  value: TaskListsIds;
-  label: React.ReactNode;
-};
-
 export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
-  const listsOptions = useMemo(
-    () =>
-      tasksListsSchema.map((taskList) => ({
-        value: taskList.id,
-        label: (
-          <>
-            <PriorityFlagIcon priority={taskList.id} width={15} height={10} />
-            <Typography variant="label">{taskList.title}</Typography>
-          </>
-        ),
-      })),
-    [tasksListsSchema],
-  );
-  const [selectedList, setSelectedList] = useState<ListsOption>(listsOptions[3]);
-
+  const [selectedList, setSelectedList] = useState<TaskListsIds>();
   const [newTaskName, setNewTaskName] = useState('');
   const { tasksLabels, addTaskLabel } = useTaskLabel();
   const [newTasksLabel, setNewTasksLabel] = useState('');
@@ -99,7 +78,7 @@ export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
       name: newTaskName,
       labels: checkedLabels,
     };
-    createNewTask(newTask, selectedList?.value || 'NOT_URGENT_AND_NOT_IMPORTANT');
+    createNewTask(newTask, selectedList || 'NOT_URGENT_AND_NOT_IMPORTANT');
     onClose();
   };
 
@@ -126,14 +105,7 @@ export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
           <LabelInput value={newTasksLabel} onChange={handleTaskLabelChange} placeholder="Add label..." />
         </LabelInputWrapper>
 
-        <StyledSelect
-          defaultValue={selectedList}
-          onChange={(event) => {
-            setSelectedList((event as ListsOption) || selectedList);
-          }}
-          options={listsOptions}
-          isSearchable={false}
-        />
+        <TasksListsSelect onChange={setSelectedList} />
 
         <Buttons>
           <Button onClick={onClose}>Cancel</Button>
