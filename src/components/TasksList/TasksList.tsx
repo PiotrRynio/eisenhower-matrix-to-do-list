@@ -32,7 +32,7 @@ export const TasksList = ({ id, title, isDoneTasksDisplayed }: TasksListProps) =
         <Typography variant="listTitle">{title}</Typography>
         <Typography variant="label"> {taskLabelText}</Typography>
       </StyledHeader>
-      <Droppable droppableId={id}>
+      <Droppable droppableId={id} isDropDisabled={!!searchParams.get('labels')}>
         {(provided: DroppableProvided) => (
           <StyledTasksList ref={provided.innerRef} {...provided.droppableProps}>
             {filteredTasks?.map(({ id, labels, isDone, name }, index) => (
