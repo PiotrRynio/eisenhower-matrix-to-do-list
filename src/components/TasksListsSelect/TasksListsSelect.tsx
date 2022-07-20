@@ -37,7 +37,7 @@ export const TasksListsSelect = ({ onChange }: TasksListsSelectProps) => {
 
   return (
     <Wrapper>
-      <Typography variant="label">Priority:</Typography>
+      <Typography variant="small">Priority:</Typography>
       <StyledSelect defaultValue={selectedList} onChange={handleChange} options={listsOptions} isSearchable={false} />
     </Wrapper>
   );

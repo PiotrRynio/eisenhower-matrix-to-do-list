@@ -25,7 +25,7 @@ export const TasksListItem = ({ id, name, labels, isDone = false, index, descrip
           <TaskCheckBox isDone={isDone} onClick={(isChecked: boolean) => changeTaskDoneStatus(id, isChecked)} />
           <Content {...provided.dragHandleProps}>
             <Typography variant="body1">{name}</Typography>
-            {!!description && <Typography variant="label">{description}</Typography>}
+            {!!description && <Typography variant="small">{description}</Typography>}
             <LabelsWrapper>
               {labels.map((label: string) => (
                 <TaskLabel key={label} name={label} isChecked={label === searchedLabels} onClick={handleLabelClicked} />

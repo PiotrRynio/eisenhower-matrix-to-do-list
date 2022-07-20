@@ -23,7 +23,7 @@ export const IconContainer = styled.div`
 `;
 
 export const StyledDatePicker = styled(DatePicker)`
-  ${({ theme }) => theme.mixins.typography.label};
+  ${({ theme }) => theme.mixins.typography.small};
   height: ${({ theme }) => theme.sizes.selectBoxHeight.default};
   width: 100%;
   padding: 8px 8px 8px 36px;

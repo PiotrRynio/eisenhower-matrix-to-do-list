@@ -12,9 +12,9 @@ describe(`<Typography>`, () => {
     screen.getByText(/Example text/i);
   });
 
-  it('renders label typography correctly', () => {
+  it('renders small typography correctly', () => {
     // when
-    render(<Typography variant="label">{exampleText}</Typography>);
+    render(<Typography variant="small">{exampleText}</Typography>);
 
     // then
     screen.getByText(/Example text/i);

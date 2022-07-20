@@ -30,7 +30,7 @@ export const TasksList = ({ id, title, isDoneTasksDisplayed }: TasksListProps) =
       <StyledHeader>
         <PriorityFlagIcon priority={id} />
         <Typography variant="listTitle">{title}</Typography>
-        <Typography variant="label"> {taskLabelText}</Typography>
+        <Typography variant="small"> {taskLabelText}</Typography>
       </StyledHeader>
       <Droppable droppableId={id} isDropDisabled={!!searchParams.get('labels')}>
         {(provided: DroppableProvided) => (

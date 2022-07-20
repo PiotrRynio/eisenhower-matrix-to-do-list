@@ -14,7 +14,7 @@ export const SimpleDatePicker = ({ value, onChange }: SimpleDatePickerProps) => 
 
   return (
     <Wrapper>
-      <Typography variant="label">Deadline (optional):</Typography>
+      <Typography variant="small">Deadline (optional):</Typography>
       <DataPickerContainer>
         <IconContainer>
           <CalendarIcon />

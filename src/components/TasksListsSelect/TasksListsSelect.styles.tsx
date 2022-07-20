@@ -11,7 +11,7 @@ export const Wrapper = styled.label`
 `;
 
 export const StyledSelect = styled(Select)`
-  ${({ theme }) => theme.mixins.typography.label};
+  ${({ theme }) => theme.mixins.typography.small};
   height: ${({ theme }) => theme.sizes.selectBoxHeight.default};
   width: ${({ theme }) => theme.sizes.selectBoxWidth.default};
 

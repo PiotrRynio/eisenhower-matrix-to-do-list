@@ -8,7 +8,7 @@ import {
   TitleTypography,
 } from './Typography.styles';
 
-type TypographyVariant = 'body1' | 'label' | 'title' | 'listTitle';
+type TypographyVariant = 'body1' | 'small' | 'title' | 'listTitle';
 
 type TypographyProps = {
   children: ReactNode;
@@ -26,7 +26,7 @@ const TYPOGRAPHY_VARIANT_MAP: {
   [id: string]: (props: TypographyProps) => JSX.Element;
 } = {
   body1: Body1Typography,
-  label: LabelTypography,
+  small: LabelTypography,
   title: TitleTypography,
   listTitle: ListTitleTypography,
 };

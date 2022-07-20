@@ -12,7 +12,7 @@ export const Body1Typography = styled.p<StyledTypographyProps>`
 `;
 
 export const LabelTypography = styled.p<StyledTypographyProps>`
-  ${({ theme }) => theme.mixins.typography.label};
+  ${({ theme }) => theme.mixins.typography.small};
   display: ${({ display }) => display || 'inline-block'};
   text-align: ${({ textAlign }) => textAlign || 'left'};
 `;

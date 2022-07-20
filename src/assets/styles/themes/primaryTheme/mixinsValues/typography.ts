@@ -9,7 +9,7 @@ export const typography: TypographyMixins = {
     font-family: ${({ theme }) => theme.fontFamilies.primary};
     color: ${({ theme }) => theme.colors.primaryText};
   `,
-  label: css<LabelProps>`
+  small: css<LabelProps>`
     font-size: ${({ theme }) => theme.fontSizes.xs};
     line-height: ${({ theme }) => theme.lineHeights.xs};
     font-weight: ${({ theme }) => theme.fontWeights.regular};

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const Label = styled.button<{ isChecked?: boolean }>`
-  ${({ theme }) => theme.mixins.typography.label};
+  ${({ theme }) => theme.mixins.typography.small};
   display: flex;
   align-items: center;
   justify-content: center;

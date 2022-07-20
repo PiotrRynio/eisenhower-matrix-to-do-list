@@ -39,7 +39,7 @@ export const ErrorHintTypography = styled(Typography)`
 `;
 
 export const TaskDescriptionInput = styled.input`
-  ${({ theme }) => theme.mixins.typography.label};
+  ${({ theme }) => theme.mixins.typography.small};
   width: 100%;
   padding: 2px;
   border: none;

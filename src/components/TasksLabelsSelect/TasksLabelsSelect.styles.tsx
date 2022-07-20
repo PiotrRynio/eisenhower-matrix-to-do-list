@@ -32,7 +32,7 @@ export const AddLabelButton = styled.button`
 `;
 
 export const LabelInput = styled.input`
-  ${({ theme }) => theme.mixins.typography.label};
+  ${({ theme }) => theme.mixins.typography.small};
   width: 100%;
   border: none;
   font-weight: ${({ theme }) => theme.fontWeights.regular};
