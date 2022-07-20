@@ -6,7 +6,7 @@ describe('formattedLastUpdateDate', () => {
 
   it('should return date in correct format', () => {
     // given
-    jest.useFakeTimers().setSystemTime(new Date('2022-06-15'));
+    jest.useFakeTimers().setSystemTime(new Date('2024-06-15'));
 
     // when
     const result = formattedDate(testDate);
@@ -56,7 +56,7 @@ describe('formattedLastUpdateDate', () => {
     const result = formattedDate(testDate);
 
     // then
-    expect(result).toBe('in 2 days');
+    expect(result).toBe('1 May 2022');
   });
 
   it('should return number of days, if it is day before yesterday', () => {
@@ -67,6 +67,6 @@ describe('formattedLastUpdateDate', () => {
     const result = formattedDate(testDate);
 
     // then
-    expect(result).toBe('2 days ago');
+    expect(result).toBe('1 May 2022');
   });
 });
