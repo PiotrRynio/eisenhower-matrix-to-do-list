@@ -4,7 +4,14 @@ import { Task } from 'types/Task';
 import { TaskListsIds } from 'types/TaskListsIds';
 import { useTasksLists } from 'hooks';
 import { Button, Overlay, TasksListsSelect, TasksLabelsSelect, SimpleDatePicker } from 'components';
-import { Buttons, TaskNameInput, Popup, TaskDescriptionInput } from './CreateNewTaskPopup.styles';
+import {
+  Buttons,
+  TaskNameInput,
+  Popup,
+  TaskDescriptionInput,
+  TaskNameInputContainer,
+  ErrorHintTypography,
+} from './CreateNewTaskPopup.styles';
 
 export type CreateNewTaskPopupProps = {
   onClose: () => void;
@@ -16,11 +23,14 @@ export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
   const [taskDescription, setTaskDescription] = useState('');
   const [checkedLabels, setCheckedLabels] = useState<string[]>([]);
   const [taskDeadline, setTaskDeadline] = useState<Date | undefined>(undefined);
+  const [isValidationFailed, setIsValidationFailed] = useState<boolean>(false);
 
   const { createNewTask } = useTasksLists();
 
   const handleTaskNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newName = event.target.value;
+    setIsValidationFailed(false);
+
     const isTooLong = newName.length > 20;
     if (isTooLong) {
       return;
@@ -38,12 +48,15 @@ export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
   };
 
   const handleSubmit = () => {
-    if (!newTaskName) {
+    const trimmedName = newTaskName.trim();
+    if (!trimmedName) {
+      setIsValidationFailed(true);
+      setNewTaskName('');
       return;
     }
     const newTask: Task = {
       id: uuidv4(),
-      name: newTaskName,
+      name: trimmedName,
       labels: checkedLabels,
       description: taskDescription,
       deadlineDate: taskDeadline,
@@ -55,7 +68,10 @@ export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
   return (
     <Overlay isOpened={true} onOverlayClick={onClose}>
       <Popup>
-        <TaskNameInput value={newTaskName} onChange={handleTaskNameChange} placeholder="Task name..." />
+        <TaskNameInputContainer>
+          <TaskNameInput value={newTaskName} onChange={handleTaskNameChange} placeholder="Task name..." required />{' '}
+          {isValidationFailed && <ErrorHintTypography variant="label">(required)</ErrorHintTypography>}
+        </TaskNameInputContainer>
         <TaskDescriptionInput
           value={taskDescription}
           onChange={handleTaskDescriptionChange}
@@ -66,11 +82,11 @@ export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
 
         <TasksListsSelect onChange={setSelectedList} />
 
-        <SimpleDatePicker onChange={setTaskDeadline} />
+        <SimpleDatePicker onChange={setTaskDeadline} value={taskDeadline} />
 
         <Buttons>
           <Button onClick={onClose}>Cancel</Button>
-          <Button onClick={handleSubmit} isPrimary>
+          <Button onClick={handleSubmit} isPrimary type="submit">
             Add task
           </Button>
         </Buttons>

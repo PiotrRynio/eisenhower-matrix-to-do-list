@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { POPUP_Z_INDEX } from 'constants/zIndexs';
+import { Typography } from 'components';
 
 export const Popup = styled.div`
   z-index: ${POPUP_Z_INDEX};
@@ -18,17 +19,29 @@ export const Popup = styled.div`
   box-shadow: 0 15px 50px 0 rgba(0, 0, 0, 0.35);
 `;
 
+export const TaskNameInputContainer = styled.label`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+`;
+
 export const TaskNameInput = styled.input`
   ${({ theme }) => theme.mixins.typography.body1};
-  width: 100%;
   border: none;
+  padding: 2px;
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   outline: none;
+`;
+
+export const ErrorHintTypography = styled(Typography)`
+  color: ${({ theme }) => theme.colors.error};
 `;
 
 export const TaskDescriptionInput = styled.input`
   ${({ theme }) => theme.mixins.typography.label};
   width: 100%;
+  padding: 2px;
   border: none;
   outline: none;
 `;

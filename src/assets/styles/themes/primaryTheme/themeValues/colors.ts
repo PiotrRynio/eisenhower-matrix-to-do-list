@@ -18,6 +18,7 @@ export const colors: Colors = {
   hardBorder: '#ddd',
 
   transparent: 'transparent',
+  error: '#FF0000',
 
   urgentAndImportantPriority: '#E44838',
   importantAndNotUrgentPriority: '#FF9E0F',

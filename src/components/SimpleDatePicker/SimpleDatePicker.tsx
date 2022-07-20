@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CalendarIcon, Typography } from 'components';
 import { DataPickerContainer, IconContainer, StyledDatePicker, Wrapper } from './SimpleDatePicker.styles';
 
 export type SimpleDatePickerProps = {
+  value: Date | undefined;
   onChange: (data: Date) => void;
 };
 
-export const SimpleDatePicker = ({ onChange }: SimpleDatePickerProps) => {
-  const [date, setDate] = useState<Date | undefined>(undefined);
-
+export const SimpleDatePicker = ({ value, onChange }: SimpleDatePickerProps) => {
   const handleChange = (date: Date) => {
-    setDate(date);
     onChange(date);
   };
 
@@ -22,7 +20,7 @@ export const SimpleDatePicker = ({ onChange }: SimpleDatePickerProps) => {
           <CalendarIcon />
         </IconContainer>
         <StyledDatePicker
-          selected={date}
+          selected={value}
           onChange={(date: Date) => handleChange(date)}
           minDate={new Date()}
           placeholderText="--/--/---- (optional)"
