@@ -2,6 +2,9 @@ import styled, { css } from 'styled-components';
 
 export const StyledButton = styled.button<{ isPrimary?: boolean }>`
   ${({ theme }) => theme.mixins.typography.button}
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 8px 16px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
   border-radius: 19px;

@@ -2,13 +2,13 @@ import { useSearchParams } from 'react-router-dom';
 import { Draggable, DraggableProvided } from 'react-beautiful-dnd';
 import { Task } from 'types/Task';
 import { useTasksLists } from 'hooks';
-import { TaskCheckBox, Typography, TaskLabel } from 'components';
-import { Content, LabelsWrapper, Wrapper } from './TasksListItem.styles';
+import { TaskCheckBox, Typography, TaskLabel, DeleteForeverIcon } from 'components';
+import { Content, LabelsWrapper, Wrapper, RemoveTaskButton } from './TasksListItem.styles';
 
 export type TasksListItemProps = Task & { index: number };
 
 export const TasksListItem = ({ id, name, labels, isDone = false, index, description = '' }: TasksListItemProps) => {
-  const { changeTaskDoneStatus } = useTasksLists();
+  const { changeTaskDoneStatus, removeTask } = useTasksLists();
   const [searchParams, setSearchParams] = useSearchParams();
   const searchedLabels = searchParams.get('labels');
 
@@ -32,6 +32,13 @@ export const TasksListItem = ({ id, name, labels, isDone = false, index, descrip
               ))}
             </LabelsWrapper>
           </Content>
+          <RemoveTaskButton
+            onClick={() => {
+              removeTask(id);
+            }}
+          >
+            <DeleteForeverIcon />
+          </RemoveTaskButton>
         </Wrapper>
       )}
     </Draggable>

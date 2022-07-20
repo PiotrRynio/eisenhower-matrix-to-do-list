@@ -19,3 +19,22 @@ export const LabelsWrapper = styled.section`
   display: flex;
   gap: 8px;
 `;
+
+export const RemoveTaskButton = styled.button`
+  display: flex;
+  width: 32px;
+  height: 32px;
+  border: 1px solid ${({ theme }) => theme.colors.idleIcon};
+
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.transparent};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.primaryHovered};
+      background: ${({ theme }) => theme.colors.primaryHovered};
+    }
+  }
+`;

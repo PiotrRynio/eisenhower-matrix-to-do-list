@@ -6,7 +6,7 @@ export type Color =
   | 'primaryText'
   | 'linkText'
   | 'disabled'
-  | 'idle'
+  | 'idleIcon'
   | 'background'
   | 'backgroundHovered'
   | 'transparent'

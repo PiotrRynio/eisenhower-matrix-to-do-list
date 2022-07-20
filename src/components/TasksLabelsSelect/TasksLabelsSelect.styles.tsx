@@ -26,7 +26,7 @@ export const AddLabelButton = styled.button`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     &:hover {
-      background-color: ${({ theme }) => theme.colors.primary};
+      background-color: ${({ theme }) => theme.colors.primaryHovered};
     }
   }
 `;

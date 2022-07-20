@@ -10,7 +10,7 @@ export const colors: Colors = {
   linkText: '#166CD7',
 
   disabled: '#8D959F',
-  idle: '#F5F5F5',
+  idleIcon: '#ddd',
 
   background: '#fff',
   backgroundHovered: 'rgba(255,255,255,0.3)',

@@ -84,5 +84,16 @@ export const useTasksLists = () => {
     setTasksLists(newTasksLists);
   };
 
-  return { getTasksList, createNewTask, changeTaskDoneStatus, findTask, changeTaskPosition };
+  const removeTask = (taskId: string) => {
+    const newTasksLists = tasksLists.map((list) => {
+      const newTasks = list.tasks.filter((task) => task.id !== taskId);
+      return {
+        ...list,
+        tasks: newTasks,
+      };
+    });
+    setTasksLists(newTasksLists);
+  };
+
+  return { getTasksList, createNewTask, changeTaskDoneStatus, findTask, changeTaskPosition, removeTask };
 };
