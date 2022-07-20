@@ -19,7 +19,7 @@ export const TasksListItem = ({ id, name, labels, isDone = false, index }: Tasks
   };
 
   return (
-    <Draggable draggableId={id} index={index}>
+    <Draggable draggableId={id} index={index} isDragDisabled={isDone}>
       {(provided: DraggableProvided) => (
         <Wrapper {...provided.draggableProps} ref={provided.innerRef}>
           <TaskCheckBox isDone={isDone} onClick={(isChecked: boolean) => changeTaskDoneStatus(id, isChecked)} />

@@ -8,6 +8,13 @@ import { tasksListsMock } from 'mocks/taskListMock';
 export const useTasksLists = () => {
   const [tasksLists, setTasksLists] = useLocalStorage<TasksList[]>('tasksLists', tasksListsMock);
 
+  const tasksByIsDonSorter = (a: Task, b: Task) => {
+    if (a.isDone === b.isDone) {
+      return 0;
+    }
+    return a.isDone ? 1 : -1;
+  };
+
   const createNewTask = (newTask: Task, taskListsId: TaskListsIds) => {
     const newTaskId = uuidv4();
     const newTasksList = tasksLists.map((list) => {
@@ -28,12 +35,14 @@ export const useTasksLists = () => {
     const newTasksList = tasksLists.map((list) => {
       return {
         ...list,
-        tasks: list.tasks.map((task) => {
-          if (task.id === taskId) {
-            return { ...task, isDone: newIsDone };
-          }
-          return task;
-        }),
+        tasks: list.tasks
+          .map((task) => {
+            if (task.id === taskId) {
+              return { ...task, isDone: newIsDone };
+            }
+            return task;
+          })
+          .sort(tasksByIsDonSorter),
       };
     });
     setTasksLists(newTasksList);
@@ -62,7 +71,8 @@ export const useTasksLists = () => {
       if (tasksListCopy.id === newTasksList) {
         const newTasks = tasksListCopy.tasks;
         newTasks.splice(newTasksIndex, 0, draggedTask as Task);
-        tasksListCopy.tasks = [...newTasks];
+        const newTasksSorted = newTasks.sort(tasksByIsDonSorter);
+        tasksListCopy.tasks = [...newTasksSorted];
       }
       return tasksListCopy;
     });
