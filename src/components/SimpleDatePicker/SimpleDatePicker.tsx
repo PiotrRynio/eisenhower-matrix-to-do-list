@@ -20,10 +20,11 @@ export const SimpleDatePicker = ({ value, onChange }: SimpleDatePickerProps) => 
           <CalendarIcon />
         </IconContainer>
         <StyledDatePicker
+          dateFormat="yyyy/MM/dd"
           selected={value}
           onChange={(date: Date) => handleChange(date)}
           minDate={new Date()}
-          placeholderText="--/--/---- (optional)"
+          placeholderText="rrrr/mm/dd (optional)"
         />
       </DatePickerContainer>
     </Wrapper>
