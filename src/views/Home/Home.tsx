@@ -19,8 +19,8 @@ export const Home = () => {
       </StyledButton>
 
       <TaskLists>
-        {tasksListsSchema.map((list) => (
-          <TasksList key={list.id} {...list} isDoneTasksDisplayed={isDoneTasksDisplayed} />
+        {tasksListsSchema.map(({ id, title }) => (
+          <TasksList key={id} tasksListId={id} title={title} isDoneTasksDisplayed={isDoneTasksDisplayed} />
         ))}
       </TaskLists>
     </article>

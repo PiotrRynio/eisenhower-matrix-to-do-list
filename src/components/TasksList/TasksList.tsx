@@ -6,12 +6,12 @@ import { useTasksLists } from 'hooks';
 import { Typography, TasksListItem, PriorityFlagIcon } from 'components';
 import { Wrapper, StyledTasksList, StyledHeader } from './TasksList.styles';
 
-type TasksListProps = { id: TaskListsIds; title: string; isDoneTasksDisplayed?: boolean };
+type TasksListProps = { tasksListId: TaskListsIds; title: string; isDoneTasksDisplayed?: boolean };
 
-export const TasksList = ({ id, title, isDoneTasksDisplayed }: TasksListProps) => {
+export const TasksList = ({ tasksListId, title, isDoneTasksDisplayed }: TasksListProps) => {
   const [searchParams] = useSearchParams();
   const { getTasksList } = useTasksLists();
-  const tasks = getTasksList(id)?.tasks;
+  const tasks = getTasksList(tasksListId)?.tasks;
 
   const filterTasksByLabels = ({ labels }: Task) => {
     const searchedLabels = searchParams.get('labels');
@@ -28,14 +28,14 @@ export const TasksList = ({ id, title, isDoneTasksDisplayed }: TasksListProps) =
   return (
     <Wrapper>
       <StyledHeader>
-        <PriorityFlagIcon priority={id} />
+        <PriorityFlagIcon priority={tasksListId} />
         <Typography variant="listTitle">{title}</Typography>
         <Typography variant="small"> {taskLabelText}</Typography>
       </StyledHeader>
-      <Droppable droppableId={id} isDropDisabled={!!searchParams.get('labels')}>
+      <Droppable droppableId={tasksListId} isDropDisabled={!!searchParams.get('labels')}>
         {(provided: DroppableProvided) => (
           <StyledTasksList ref={provided.innerRef} {...provided.droppableProps}>
-            {filteredTasks?.map(({ id, labels, isDone, name, description }, index) => (
+            {filteredTasks?.map(({ id, labels, isDone, name, description, deadlineDate }, index) => (
               <TasksListItem
                 key={id}
                 id={id}
@@ -44,6 +44,8 @@ export const TasksList = ({ id, title, isDoneTasksDisplayed }: TasksListProps) =
                 isDone={isDone}
                 index={index}
                 description={description}
+                deadlineDate={deadlineDate}
+                listId={tasksListId}
               />
             ))}
             {provided.placeholder}

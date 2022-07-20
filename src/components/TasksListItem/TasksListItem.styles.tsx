@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Typography } from '../Typography';
 
 export const Wrapper = styled.li`
   display: flex;
@@ -17,7 +18,12 @@ export const Content = styled.article`
 
 export const LabelsWrapper = styled.section`
   display: flex;
+  align-items: center;
   gap: 8px;
+`;
+
+export const StyledDateTypography = styled(Typography)`
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
 `;
 
 export const RemoveTaskButton = styled.button`

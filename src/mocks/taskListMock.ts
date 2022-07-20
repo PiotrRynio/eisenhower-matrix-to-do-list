@@ -9,13 +9,13 @@ export const tasksListsMock: TasksList[] = [
         id: '9fa14265-4532-45a9-85ea-5d428d547870',
         name: 'Make project',
         labels: ['company'],
-        deadlineDate: new Date(),
       },
       {
         id: '2dc2fb5d-6dee-494d-843c-56b8ea2b2917',
         name: 'Hire Peter',
         labels: ['company'],
         description: 'He is the best candidate ;)',
+        deadlineDate: new Date(),
       },
       { id: 'ae779afb-d41f-4524-9c97-d9b5de7536e1', name: 'Learn new programming things', labels: ['programming'] },
       {
@@ -24,6 +24,7 @@ export const tasksListsMock: TasksList[] = [
         labels: ['company'],
         isDone: true,
         description: 'Call Peter about technical interview. +48 518308508',
+        deadlineDate: new Date('2024-07-20'),
       },
     ],
   },
@@ -44,7 +45,12 @@ export const tasksListsMock: TasksList[] = [
     id: 'NOT_URGENT_AND_NOT_IMPORTANT',
     title: 'not Urgent & not Important',
     tasks: [
-      { id: '8239dcce-5a43-4655-8402-9401fb4bc0e4', name: 'Play game', labels: ['home', 'free time'] },
+      {
+        id: '8239dcce-5a43-4655-8402-9401fb4bc0e4',
+        name: 'Play game',
+        labels: ['home', 'free time'],
+        deadlineDate: new Date('2024-07-20'),
+      },
       { id: '9be229ed-9923-4373-b702-f03d879b568b', name: 'Sleep', labels: ['home'] },
     ],
   },
