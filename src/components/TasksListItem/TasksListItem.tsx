@@ -4,7 +4,7 @@ import { Task } from 'types/Task';
 import { TaskListsIds } from 'types/TaskListsIds';
 import { useTasksLists } from 'hooks';
 import { TaskCheckBox, Typography, TaskLabel, DeleteForeverIcon } from 'components';
-import { formatDate } from 'utils';
+import { formatDate, getDateProperties } from 'utils';
 import { Content, LabelsWrapper, Wrapper, RemoveTaskButton, StyledDateTypography } from './TasksListItem.styles';
 
 export type TasksListItemProps = Task & { index: number; listId: TaskListsIds };
@@ -30,6 +30,8 @@ export const TasksListItem = ({
   };
 
   const isDeadlineDisplayed = !!deadlineDate && listId === 'URGENT_AND_IMPORTANT';
+  const isAfterDeadline = deadlineDate && getDateProperties(new Date(deadlineDate)).isInPast;
+  const dateText = deadlineDate && formatDate(new Date(deadlineDate));
 
   return (
     <Draggable draggableId={id} index={index} isDragDisabled={isDone}>
@@ -43,7 +45,9 @@ export const TasksListItem = ({
 
             <LabelsWrapper>
               {isDeadlineDisplayed && (
-                <StyledDateTypography variant="small">|| {formatDate(new Date(deadlineDate))} ||</StyledDateTypography>
+                <StyledDateTypography variant="small" isAfterDeadline={isAfterDeadline}>
+                  || {dateText} ||
+                </StyledDateTypography>
               )}
               {labels.map((label: string) => (
                 <TaskLabel key={label} name={label} isChecked={label === searchedLabels} onClick={handleLabelClicked} />

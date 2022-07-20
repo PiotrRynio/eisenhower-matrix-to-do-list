@@ -22,8 +22,9 @@ export const LabelsWrapper = styled.section`
   gap: 8px;
 `;
 
-export const StyledDateTypography = styled(Typography)`
+export const StyledDateTypography = styled(Typography)<{ isAfterDeadline?: boolean }>`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
+  color: ${({ theme, isAfterDeadline }) => isAfterDeadline && theme.colors.error};
 `;
 
 export const RemoveTaskButton = styled.button`

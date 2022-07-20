@@ -24,7 +24,7 @@ export const tasksListsMock: TasksList[] = [
         labels: ['company'],
         isDone: true,
         description: 'Call Peter about technical interview. +48 518308508',
-        deadlineDate: new Date('2024-07-20'),
+        deadlineDate: new Date('2022-07-18'),
       },
     ],
   },
