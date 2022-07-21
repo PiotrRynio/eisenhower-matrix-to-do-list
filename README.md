@@ -30,17 +30,22 @@ Others:
 
 1. This project is a recruitment task solution. I fulfilled **all the requirements**.
 2. Since I did not receive a graphic design, I decided to use a design similar to the 
-   [Todoist](https://todoist.com/pl/productivity-methods/eisenhower-matrix) app design, because I 
+   [Todoist](https://todoist.com/pl/productivity-methods/eisenhower-matrix) app design because I 
    received description of The Eisenhower Matrix
    [in this app's blog](https://todoist.com/pl/productivity-methods/eisenhower-matrix) from the
    recruiter. In this blog I also found a graphic design of The Eisenhower Matrix in the
    **form of list**.
 3. In the requirements there should be displayed a deadline date of the "Urgent" tasks. 
    I implemented this either for "Urgent and Important" tasks and "Urgent and not Important" tasks. 
-   It should be consulted with the client. 
+   It should be consulted with the client.  
 4. I created tests from different types of tests. Unfortunately limited free time did not let me 
    cover each component. I think that already existing tests create good presentation of my skills.
-   
+5. I decided to store data with use of local storage because it is only a frontend project and 
+   it was good solution in this project and requirements. I did not receive any API from the
+   recruiter. I was thinking about other solutions like session storage, cookies, IndexedDB,
+   MSW, Firebase, etc. The recruiter told that I can use local-storage.
+
+
 
 ## Screens:
 
