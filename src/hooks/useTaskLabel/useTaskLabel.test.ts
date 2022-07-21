@@ -30,7 +30,7 @@ describe('useTaskLabel', () => {
     const { result } = renderHook(() => useTaskLabel());
 
     // when
-    await act(() => {
+    act(() => {
       result.current.addTaskLabel(newLabel);
     });
 
