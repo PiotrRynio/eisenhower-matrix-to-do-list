@@ -3,7 +3,8 @@ import userEvent from '@testing-library/user-event';
 import { theme } from 'assets/styles/themes/primaryTheme';
 import { initialTasksLabelsState } from 'constants/initialTasksLabelsState';
 import { CreateNewTaskPopup } from './CreateNewTaskPopup';
-import { emptyTasksListsMock } from '../../mocks/emptyTasksListsMock';
+import { emptyTasksListsMock } from 'mocks/emptyTasksListsMock';
+
 jest.mock('uuid', () => {
   return {
     v4: () => 'test-uuid',
@@ -73,15 +74,13 @@ describe(`<CreateNewTaskPopup>`, () => {
   it('create correct task', async () => {
     //given
     window.localStorage.setItem('tasksLists', JSON.stringify(emptyTasksListsMock));
-
     const expectedTasksLists = JSON.parse(JSON.stringify(emptyTasksListsMock));
     expectedTasksLists[3].tasks.push({
       id: 'test-uuid',
       name: 'example task name',
-      labels: [],
+      labels: ['home', 'test label'],
       description: 'example task description',
     });
-
     const user = userEvent.setup();
     const mockCallback = jest.fn();
     render(<CreateNewTaskPopup onClose={mockCallback} />);
@@ -91,8 +90,14 @@ describe(`<CreateNewTaskPopup>`, () => {
     await user.type(taskName, 'example task name');
     const description = screen.getByPlaceholderText(/Description.../i);
     await user.type(description, 'example task description');
-    const button = screen.getByRole('button', { name: /Add task/i });
-    await user.click(button);
+    const homeLabel = screen.getByRole('button', { name: /home/i });
+    await user.click(homeLabel);
+    const addLabelInput = screen.getByPlaceholderText(/Add label.../i);
+    await user.type(addLabelInput, 'test label');
+    const addLabelButton = screen.getByRole('button', { name: /add label/i });
+    await user.click(addLabelButton);
+    const addTaskButton = screen.getByRole('button', { name: /Add task/i });
+    await user.click(addTaskButton);
 
     // then
     expect(mockCallback).toHaveBeenCalled();
