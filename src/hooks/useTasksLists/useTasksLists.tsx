@@ -8,21 +8,21 @@ import { initialTasksListsState } from 'constants/initialTasksListsState';
 export const useTasksLists = () => {
   const [tasksLists, setTasksLists] = useLocalStorage<TasksList[]>('tasksLists', initialTasksListsState);
 
-  const tasksByIsDonSorter = (taskA: Task, taskB: Task) => {
+  const firstTasksIsDoneSorter = (taskA: Task, taskB: Task) => {
     if (taskA.isDone === taskB.isDone) {
       return 0;
     }
     return taskB.isDone ? -1 : 1;
   };
 
-  const createNewTask = (newTask: Task, taskListsId: TaskListsIds) => {
+  const addNewTask = (newTask: Task, taskListsId: TaskListsIds) => {
     const newTaskId = uuidv4();
     const newTasksLists = tasksLists.map((list) => {
       if (list.id !== taskListsId) {
         return list;
       }
       const newTasks = [...list.tasks, { ...newTask, id: newTaskId }];
-      const newSortedTasks = newTasks.sort(tasksByIsDonSorter);
+      const newSortedTasks = newTasks.sort(firstTasksIsDoneSorter);
       return {
         ...list,
         tasks: newSortedTasks,
@@ -31,7 +31,29 @@ export const useTasksLists = () => {
     setTasksLists(newTasksLists);
   };
 
-  const getTasksList = (taskListsId: TaskListsIds) => tasksLists.find((list) => list.id === taskListsId);
+  const fixDeadlineDateInTasksList = (taskList: TasksList) => {
+    const newTasks = taskList.tasks.map((task) => {
+      if (task.deadlineDate) {
+        return {
+          ...task,
+          deadlineDate: new Date(task.deadlineDate),
+        };
+      }
+      return task;
+    });
+
+    return {
+      ...taskList,
+      tasks: newTasks,
+    };
+  };
+
+  const getTasksList = (taskListsId: TaskListsIds): TasksList | undefined => {
+    const tasksList = tasksLists.find((list) => list.id === taskListsId);
+    return tasksList && fixDeadlineDateInTasksList(tasksList);
+  };
+
+  const getAllTasksLists = (): TasksList[] => tasksLists.map((tasksList) => fixDeadlineDateInTasksList(tasksList));
 
   const changeTaskDoneStatus = (taskId: string, newIsDone: boolean) => {
     const newTasksList = tasksLists.map((list) => {
@@ -42,7 +64,7 @@ export const useTasksLists = () => {
           }
           return { ...task, isDone: newIsDone };
         })
-        .sort(tasksByIsDonSorter);
+        .sort(firstTasksIsDoneSorter);
 
       return {
         ...list,
@@ -75,7 +97,7 @@ export const useTasksLists = () => {
       if (tasksListCopy.id === newTasksList) {
         const newTasks = tasksListCopy.tasks;
         newTasks.splice(newTasksIndex, 0, draggedTask as Task);
-        const newTasksSorted = newTasks.sort(tasksByIsDonSorter);
+        const newTasksSorted = newTasks.sort(firstTasksIsDoneSorter);
         tasksListCopy.tasks = [...newTasksSorted];
       }
       return tasksListCopy;
@@ -95,5 +117,5 @@ export const useTasksLists = () => {
     setTasksLists(newTasksLists);
   };
 
-  return { getTasksList, createNewTask, changeTaskDoneStatus, findTask, changeTaskPosition, removeTask };
+  return { getAllTasksLists, getTasksList, addNewTask, changeTaskDoneStatus, findTask, changeTaskPosition, removeTask };
 };

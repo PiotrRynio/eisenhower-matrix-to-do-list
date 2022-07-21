@@ -18,7 +18,7 @@ export type CreateNewTaskPopupProps = {
 };
 
 export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
-  const { createNewTask } = useTasksLists();
+  const { addNewTask } = useTasksLists();
 
   const [selectedList, setSelectedList] = useState<TaskListsIds>();
   const [newTaskName, setNewTaskName] = useState('');
@@ -61,7 +61,7 @@ export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
       description: taskDescription,
       deadlineDate: taskDeadline,
     };
-    createNewTask(newTask, selectedList || 'NOT_URGENT_AND_NOT_IMPORTANT');
+    addNewTask(newTask, selectedList || 'NOT_URGENT_AND_NOT_IMPORTANT');
     onClose(true);
   };
 
