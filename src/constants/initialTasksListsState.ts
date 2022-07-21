@@ -1,6 +1,6 @@
 import { TasksList } from 'types/TasksList';
 
-export const tasksListsMock: TasksList[] = [
+export const initialTasksListsState: TasksList[] = [
   {
     id: 'URGENT_AND_IMPORTANT',
     title: 'Urgent & Important',

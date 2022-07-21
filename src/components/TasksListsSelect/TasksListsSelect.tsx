@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 // @ts-ignore
 import { ValueType } from 'react-select/lib/types';
 import { TaskListsIds } from 'types/TaskListsIds';
-import { tasksListsSchema } from 'constants/tasksListsSchema';
+import { initialTasksListsState } from 'constants/initialTasksListsState';
 import { PriorityFlagIcon, Typography } from 'components';
 import { StyledSelect, Wrapper } from './TasksListsSelect.styles';
 
@@ -16,7 +16,7 @@ export type TasksListsSelectProps = { onChange: (selectedList: TaskListsIds) => 
 export const TasksListsSelect = ({ onChange }: TasksListsSelectProps) => {
   const listsOptions = useMemo(
     () =>
-      tasksListsSchema.map((taskList) => ({
+      initialTasksListsState.map((taskList) => ({
         value: taskList.id,
         label: (
           <>
@@ -25,7 +25,7 @@ export const TasksListsSelect = ({ onChange }: TasksListsSelectProps) => {
           </>
         ),
       })),
-    [tasksListsSchema],
+    [initialTasksListsState],
   );
 
   const [selectedList, setSelectedList] = useState<ListsOption>(listsOptions[3]);

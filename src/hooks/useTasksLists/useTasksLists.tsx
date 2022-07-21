@@ -3,10 +3,10 @@ import { useLocalStorage } from 'usehooks-ts';
 import { TasksList } from 'types/TasksList';
 import { TaskListsIds } from 'types/TaskListsIds';
 import { Task } from 'types/Task';
-import { tasksListsMock } from 'mocks/taskListMock';
+import { initialTasksListsState } from 'constants/initialTasksListsState';
 
 export const useTasksLists = () => {
-  const [tasksLists, setTasksLists] = useLocalStorage<TasksList[]>('tasksLists', tasksListsMock);
+  const [tasksLists, setTasksLists] = useLocalStorage<TasksList[]>('tasksLists', initialTasksListsState);
 
   const tasksByIsDonSorter = (taskA: Task, taskB: Task) => {
     if (taskA.isDone === taskB.isDone) {

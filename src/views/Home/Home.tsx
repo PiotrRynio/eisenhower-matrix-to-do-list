@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FULL_APP_NAME, SHORT_APP_NAME } from 'constants/names';
-import { tasksListsSchema } from 'constants/tasksListsSchema';
+import { initialTasksListsState } from 'constants/initialTasksListsState';
 import { usePageTitle } from 'hooks';
 import { TasksList, Typography } from 'components';
 import { StyledButton, TaskLists } from './Home.styles';
@@ -19,7 +19,7 @@ export const Home = () => {
       </StyledButton>
 
       <TaskLists>
-        {tasksListsSchema.map(({ id, title }) => (
+        {initialTasksListsState.map(({ id, title }) => (
           <TasksList key={id} tasksListId={id} title={title} isDoneTasksDisplayed={isDoneTasksDisplayed} />
         ))}
       </TaskLists>

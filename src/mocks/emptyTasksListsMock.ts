@@ -1,6 +1,6 @@
 import { TasksList } from 'types/TasksList';
 
-export const tasksListsSchema: TasksList[] = [
+export const emptyTasksListsMock: TasksList[] = [
   {
     id: 'URGENT_AND_IMPORTANT',
     title: 'Urgent & Important',
