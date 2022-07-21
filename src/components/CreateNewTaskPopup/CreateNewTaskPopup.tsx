@@ -18,14 +18,14 @@ export type CreateNewTaskPopupProps = {
 };
 
 export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
+  const { createNewTask } = useTasksLists();
+
   const [selectedList, setSelectedList] = useState<TaskListsIds>();
   const [newTaskName, setNewTaskName] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
   const [checkedLabels, setCheckedLabels] = useState<string[]>([]);
   const [taskDeadline, setTaskDeadline] = useState<Date | undefined>(undefined);
   const [isValidationFailed, setIsValidationFailed] = useState<boolean>(false);
-
-  const { createNewTask } = useTasksLists();
 
   const handleTaskNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newName = event.target.value;
@@ -67,7 +67,7 @@ export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
 
   return (
     <Popup>
-      <TaskNameInputContainer>
+      <TaskNameInputContainer aria-label="task name">
         {isValidationFailed && <ErrorHintTypography variant="small"> (required) </ErrorHintTypography>}
         <TaskNameInput value={newTaskName} onChange={handleTaskNameChange} placeholder="Task name..." required />{' '}
       </TaskNameInputContainer>
