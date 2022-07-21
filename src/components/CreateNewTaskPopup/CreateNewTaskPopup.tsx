@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Task } from 'types/Task';
 import { TaskListsIds } from 'types/TaskListsIds';
 import { useTasksLists } from 'hooks';
-import { Button, Overlay, TasksListsSelect, TasksLabelsSelect, SimpleDatePicker } from 'components';
+import { Button, TasksListsSelect, TasksLabelsSelect, SimpleDatePicker } from 'components';
 import {
   Buttons,
   TaskNameInput,
@@ -14,7 +14,7 @@ import {
 } from './CreateNewTaskPopup.styles';
 
 export type CreateNewTaskPopupProps = {
-  onClose: () => void;
+  onClose: (isNewTaskCreated?: boolean) => void;
 };
 
 export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
@@ -62,35 +62,33 @@ export const CreateNewTaskPopup = ({ onClose }: CreateNewTaskPopupProps) => {
       deadlineDate: taskDeadline,
     };
     createNewTask(newTask, selectedList || 'NOT_URGENT_AND_NOT_IMPORTANT');
-    onClose();
+    onClose(true);
   };
 
   return (
-    <Overlay isOpened={true} onOverlayClick={onClose}>
-      <Popup>
-        <TaskNameInputContainer>
-          {isValidationFailed && <ErrorHintTypography variant="small"> (required) </ErrorHintTypography>}
-          <TaskNameInput value={newTaskName} onChange={handleTaskNameChange} placeholder="Task name..." required />{' '}
-        </TaskNameInputContainer>
-        <TaskDescriptionInput
-          value={taskDescription}
-          onChange={handleTaskDescriptionChange}
-          placeholder="Description... (optional)"
-        />
+    <Popup>
+      <TaskNameInputContainer>
+        {isValidationFailed && <ErrorHintTypography variant="small"> (required) </ErrorHintTypography>}
+        <TaskNameInput value={newTaskName} onChange={handleTaskNameChange} placeholder="Task name..." required />{' '}
+      </TaskNameInputContainer>
+      <TaskDescriptionInput
+        value={taskDescription}
+        onChange={handleTaskDescriptionChange}
+        placeholder="Description... (optional)"
+      />
 
-        <TasksLabelsSelect onChange={setCheckedLabels} />
+      <TasksLabelsSelect onChange={setCheckedLabels} />
 
-        <TasksListsSelect onChange={setSelectedList} />
+      <TasksListsSelect onChange={setSelectedList} />
 
-        <SimpleDatePicker onChange={setTaskDeadline} value={taskDeadline} />
+      <SimpleDatePicker onChange={setTaskDeadline} value={taskDeadline} />
 
-        <Buttons>
-          <Button onClick={onClose}>Cancel</Button>
-          <Button onClick={handleSubmit} isPrimary type="submit">
-            Add task
-          </Button>
-        </Buttons>
-      </Popup>
-    </Overlay>
+      <Buttons>
+        <Button onClick={() => onClose(false)}>Cancel</Button>
+        <Button onClick={handleSubmit} isPrimary type="submit">
+          Add task
+        </Button>
+      </Buttons>
+    </Popup>
   );
 };

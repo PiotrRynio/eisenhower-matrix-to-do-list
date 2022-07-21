@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, CreateNewTaskPopup } from 'components';
+import { Button, CreateNewTaskPopup, Overlay } from 'components';
 
 export const CreateTaskButton = () => {
   const [isPopupOpened, setIsPopupOpened] = useState(false);
@@ -14,7 +14,11 @@ export const CreateTaskButton = () => {
       >
         Add new task
       </Button>
-      {isPopupOpened && <CreateNewTaskPopup onClose={() => setIsPopupOpened(false)} />}
+      {isPopupOpened && (
+        <Overlay isOpened={true} onOverlayClick={() => setIsPopupOpened(false)}>
+          <CreateNewTaskPopup onClose={() => setIsPopupOpened(false)} />
+        </Overlay>
+      )}
     </>
   );
 };
