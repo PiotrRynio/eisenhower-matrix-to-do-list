@@ -29,7 +29,8 @@ export const TasksListItem = ({
     setSearchParams(params);
   };
 
-  const isDeadlineDisplayed = !!deadlineDate && listId === 'URGENT_AND_IMPORTANT';
+  const isDeadlineDisplayed =
+    !!deadlineDate && (listId === 'URGENT_AND_IMPORTANT' || listId === 'URGENT_AND_NOT_IMPORTANT');
   const isAfterDeadline = deadlineDate && getDateProperties(new Date(deadlineDate)).isInPast;
   const dateText = deadlineDate && formatDate(new Date(deadlineDate));
 
