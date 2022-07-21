@@ -3,6 +3,8 @@ jest.setTimeout(5000);
 
 beforeAll(() => {});
 
-beforeEach(() => {});
+beforeEach(() => {
+  localStorage.clear();
+});
 
 afterAll(() => {});
