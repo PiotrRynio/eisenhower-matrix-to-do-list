@@ -47,7 +47,7 @@ describe('useTasksLists', () => {
 
     // when
     const { getTasksList } = result.current;
-    const tasksList = getTasksList('URGENT_AND_IMPORTANT')();
+    const tasksList = getTasksList('URGENT_AND_IMPORTANT');
 
     // then
     expect(tasksList).toStrictEqual(tasksListsWithTwoTaskMock[0]);
